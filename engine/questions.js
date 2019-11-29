@@ -6,7 +6,7 @@ var questions = [];
 //type: 0 #Один правильный вариант
 //type: 1 #Несколько правильных вариантов
 //type: 2 #Ввести ответ вручную
-/* 
+/*
 
 для type 0:
 var любое_имя = {
@@ -97,7 +97,7 @@ var q2 = {
     correct: 'questions/correct1.html',
     wrong: 'questions/wrong2.html'
 }
-//questions.push(q2);
+questions.push(q2);
 
 var q3 = {
     content: 'questions/1/q3.html',
@@ -112,7 +112,7 @@ var q3 = {
     correct: 'questions/correct1.html',
     wrong: 'questions/wrong1.html'
 }
-//questions.push(q3);
+questions.push(q3);
 
 var q4 = {
     content: 'questions/1/q4.html',
@@ -127,7 +127,7 @@ var q4 = {
     correct: 'questions/correct1.html',
     wrong: 'questions/wrong1.html'
 }
-//questions.push(q4);
+questions.push(q4);
 
 var q5 = {
     content: 'questions/1/q5.html',
@@ -144,7 +144,7 @@ var q5 = {
     correct: 'questions/correct1.html',
     wrong: 'questions/wrong2.html'
 }
-//questions.push(q5);
+questions.push(q5);
 
 var q6 = {
     content: 'questions/1/q6.html',
@@ -159,4 +159,4 @@ var q6 = {
     correct: 'questions/correct1.html',
     wrong: 'questions/wrong1.html'
 }
-//questions.push(q6);
+questions.push(q6);
