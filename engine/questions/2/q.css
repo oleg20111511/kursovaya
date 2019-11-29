@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+/* CSS Document */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+.FL {
+    float: left;
+}
+
+.FR {
+    float: right;
+}
+
+.CB {
+    clear: both;
+}
+
+body {
+    display: block;
+    background-color: #FFEBCD;
+}
+
+img {
+    width: 75%;
+    display: block;
+    margin: auto;
+    text-align: center; 
+}
+p { 
+text-align: center;
+}
+h1 { 
+text-align: center;
+}
+h2 { 
+text-align: center;
+}
+audio {
+audio-align: center;
+}
