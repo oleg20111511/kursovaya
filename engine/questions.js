@@ -1,4 +1,4 @@
-﻿"use strict"
+"use strict"
 var questions = [];
 
 
@@ -68,95 +68,95 @@ questions.push(любое_имя);
 */
 
 var q1 = {
-    content: 'questions/1/q1.html',
-    type: 0,
-    rightAnswer: 'Вариант1!',
-    wrongAnswers: [
-        'Вариант2!',
-        'Вариант3!',
-        'Вариант4!',
-        'Вариант5!'
-    ],
-    correct: 'questions/correct1.html',
-    wrong: 'questions/wrong1.html'
+  content: 'questions/1/q1.html',
+  type: 0,
+  rightAnswer: 'Вариант1!',
+  wrongAnswers: [
+    'Вариант2!',
+    'Вариант3!',
+    'Вариант4!',
+    'Вариант5!'
+  ],
+  correct: 'questions/correct1.html',
+  wrong: 'questions/wrong1.html'
 }
 questions.push(q1);
 
 var q2 = {
-    content: 'questions/1/q2.html',
-    type: 1,
-    rightAnswers: [
-        'Вариант1!!',
-        'Вариант5!!'
-    ],
-    wrongAnswers: [
-        'Вариант2!',
-        'Вариант3!',
-        'Вариант4!'
-    ],
-    correct: 'questions/correct1.html',
-    wrong: 'questions/wrong2.html'
+  content: 'questions/1/q2.html',
+  type: 1,
+  rightAnswers: [
+    'Вариант1!!',
+    'Вариант5!!'
+  ],
+  wrongAnswers: [
+    'Вариант2!',
+    'Вариант3!',
+    'Вариант4!'
+  ],
+  correct: 'questions/correct1.html',
+  wrong: 'questions/wrong2.html'
 }
 questions.push(q2);
 
 var q3 = {
-    content: 'questions/1/q3.html',
-    type: 2,
-    rightAnswers: [
-        'Вариант 1!',
-        'Вариант 1',
-        'вариант 1',
-        'вариант первый',
-        'Вариант I'
-    ],
-    correct: 'questions/correct1.html',
-    wrong: 'questions/wrong1.html'
+  content: 'questions/1/q3.html',
+  type: 2,
+  rightAnswers: [
+    'Вариант 1!',
+    'Вариант 1',
+    'вариант 1',
+    'вариант первый',
+    'Вариант I'
+  ],
+  correct: 'questions/correct1.html',
+  wrong: 'questions/wrong1.html'
 }
 questions.push(q3);
 
 var q4 = {
-    content: 'questions/1/q4.html',
-    type: 0,
-    rightAnswer: 'Вариант1!',
-    wrongAnswers: [
-        'Вариант2!',
-        'Вариант3!',
-        'Вариант4!',
-        'Вариант5!'
-    ],
-    correct: 'questions/correct1.html',
-    wrong: 'questions/wrong1.html'
+  content: 'questions/1/q4.html',
+  type: 0,
+  rightAnswer: 'Вариант1!',
+  wrongAnswers: [
+    'Вариант2!',
+    'Вариант3!',
+    'Вариант4!',
+    'Вариант5!'
+  ],
+  correct: 'questions/correct1.html',
+  wrong: 'questions/wrong1.html'
 }
 questions.push(q4);
 
 var q5 = {
-    content: 'questions/1/q5.html',
-    type: 1,
-    rightAnswers: [
-        'Вариант1!!',
-        'Вариант5!!'
-    ],
-    wrongAnswers: [
-        'Вариант2!',
-        'Вариант3!',
-        'Вариант4!'
-    ],
-    correct: 'questions/correct1.html',
-    wrong: 'questions/wrong2.html'
+  content: 'questions/1/q5.html',
+  type: 1,
+  rightAnswers: [
+    'Вариант1!!',
+    'Вариант5!!'
+  ],
+  wrongAnswers: [
+    'Вариант2!',
+    'Вариант3!',
+    'Вариант4!'
+  ],
+  correct: 'questions/correct1.html',
+  wrong: 'questions/wrong2.html'
 }
 questions.push(q5);
 
 var q6 = {
-    content: 'questions/1/q6.html',
-    type: 2,
-    rightAnswers: [
-        'Вариант 1!',
-        'Вариант 1',
-        'вариант 1',
-        'вариант первый',
-        'Вариант I'
-    ],
-    correct: 'questions/correct1.html',
-    wrong: 'questions/wrong1.html'
+  content: 'questions/1/q6.html',
+  type: 2,
+  rightAnswers: [
+    'Вариант 1!',
+    'Вариант 1',
+    'вариант 1',
+    'вариант первый',
+    'Вариант I'
+  ],
+  correct: 'questions/correct1.html',
+  wrong: 'questions/wrong1.html'
 }
 questions.push(q6);
