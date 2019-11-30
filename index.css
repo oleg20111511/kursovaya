@@ -65,9 +65,10 @@
   background-color: #631818;
 }
 
-.drop{
+.drop {
   list-style: none;
 }
+
 .drop li {
   width: 60%;
   opacity: 0;
@@ -134,12 +135,17 @@
   height: 500px;
   width: 80%;
   background-color: white;
-  opacity: 0.8;
+  background: url(50%-transparent-white.png);
+  background: rgba(255, 255, 255, 0.5);
   z-index: -999;
 }
 
 .content {
   text-align: center;
+}
+
+.content div {
+  opacity: 1;
 }
 
 .register {
