@@ -33,7 +33,7 @@
 }
 
 .menuList {
-  width: 60%;
+  width: 80%;
   height: 100%;
   list-style: none;
   display: inline-block;
@@ -41,10 +41,15 @@
 }
 
 .menuList li {
+  white-space: nowrap;
   width: 15%;
   height: 100%;
   margin: 0;
   z-index: 999;
+}
+
+.firstLi{
+  width: 25% !important;
 }
 
 .menuList li a {
