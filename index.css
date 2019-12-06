@@ -48,7 +48,7 @@
   z-index: 999;
 }
 
-.firstLi{
+.firstLi {
   width: 25% !important;
 }
 
@@ -75,9 +75,13 @@
 }
 
 .drop li {
-  width: 60%;
+  width: 100%;
   opacity: 0;
   transform-origin: top center;
+}
+
+.dropMenuSmall li {
+  width: 50%; !important
 }
 
 .drop li a {

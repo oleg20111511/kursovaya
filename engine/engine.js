@@ -165,7 +165,7 @@ function fillAnswerBlocks(type, answersAmount, answerFieldHeight) {
 window.onload = function() {
   let fileLink = localStorage.getItem('fileLink');
   let questionList = document.createElement('script');
-  questionList.src = 'questions.js'; //fileLink;
+  questionList.src = fileLink;
   questionList.onload = () => start();
   document.head.append(questionList);
 }
