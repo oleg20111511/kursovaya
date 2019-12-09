@@ -224,3 +224,24 @@ label.hamburger {
   top: 15px;
   right: 15px;
 }
+
+.CB {
+  clear: both;
+}
+
+.content {
+  text-align: center;
+}
+
+.content div {
+  opacity: 1;
+}
+.levelBlock {
+  width: 90%;
+  margin-left: 4%;
+  margin-bottom: 4%;
+  background-color: red;
+  cursor: pointer;
+  background-size: contain;
+  text-align: center
+}
