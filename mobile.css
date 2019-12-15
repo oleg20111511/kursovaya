@@ -175,3 +175,8 @@ body{
 		 box-shadow:  0 12px #B0C4DE;
 		 margin-top: 10px;
 }
+
+.adjustHeight{
+  width: 0; !important
+  height: 0; !important
+}

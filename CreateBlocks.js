@@ -18,7 +18,7 @@ window.onload = function() {
     block.style.height = (block.clientWidth * 0.56) + 'px';
   }
   let par = document.createElement('p');
-  par.className = 'CB';
+  par.className = 'CB adjustHeight';
   content.appendChild(par);
 }
 
@@ -39,7 +39,7 @@ function loadGroup(group) {
     block.style.height = (block.clientWidth * 0.56) + 'px';
   }
   let par = document.createElement('p');
-  par.className = 'CB';
+  par.className = 'CB adjustHeight';
   content.appendChild(par);
 }
 
