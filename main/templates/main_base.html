@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Курсовая</title>
+	{% load static %}
+	<link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body class="body">
+	<nav class='navigation'>
+		<ul class="menuList">
+			<li class="FL firstLi"><a href="{% url 'index' %}">Pagina principală</a></li>
+			<li class="FL"><a href="#">Pregătire</a>
+				<ul class="drop menu dropMenuSmall">
+					{% for theme in tutorial_themes %}
+					<li><a href="{{ theme.get_absolute_url }}">-{{ theme.name }}</a></li>
+					{% endfor %}
+				</ul>
+			</li>
+			<li class="FL"><a href="{% url 'level-theme' %}">Jocurile</a></li>
+			{% if user.is_authenticated %}
+			<li class="FR"><a href="">{{user.get_username}}, мы внутри</a></li>
+			{% else %}
+				<li class="FR"><a href="">logare</a>
+				<ul class="drop menu">
+					<li><a href="">înregistrarea</a></li>
+				</ul>
+				</li>
+			{% endif %}
+		</ul>
+	</nav>
+
+
+	<!-- Этот div будет содержать фон -->
+	<div class="CB main">
+		{% block content %} {% endblock %}
+	</div>
+</body>
+
+</html>

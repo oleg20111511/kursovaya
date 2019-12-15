@@ -1,0 +1,15 @@
+{% extends 'main_base.html' %}
+
+{% block content %}
+<div class="content" id="content">
+	{% if leveltheme_list %}
+		{% for leveltheme in leveltheme_list %}
+		{% load static %}
+		<div onclick="window.location='{{leveltheme.get_absolute_url}}'" class="levelBlock FL" style="background-image: url({% static leveltheme.background %});"></div>
+		{% endfor %}
+	{% else %}
+	<h1>Нет здесь нихуя, отстань</h1>
+	{% endif %}
+</div>
+<script src="{% static 'js/ResizeBlocks.js' %}"></script>
+{% endblock %}
