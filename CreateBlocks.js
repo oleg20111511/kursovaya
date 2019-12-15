@@ -17,6 +17,9 @@ window.onload = function() {
     content.appendChild(block);
     block.style.height = (block.clientWidth * 0.56) + 'px';
   }
+  let par = document.createElement('p');
+  par.className = 'CB';
+  content.appendChild(par);
 }
 
 function loadGroup(group) {
@@ -35,10 +38,12 @@ function loadGroup(group) {
     content.appendChild(block);
     block.style.height = (block.clientWidth * 0.56) + 'px';
   }
+  let par = document.createElement('p');
+  par.className = 'CB';
+  content.appendChild(par);
 }
 
 function proceed(link) {
-  console.log(1);
   localStorage.setItem('fileLink', link);
   window.location = 'engine/engine.html';
 }

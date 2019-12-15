@@ -26,7 +26,7 @@ function shuffle(a) {
 
 
 //Заполнение параграфов с ответами
-function fillAnsweParagraphs(type, answersAmount) {
+function fillAnswerParagraphs(type, answersAmount) {
   let question = questions[currentQuestion];
   if (type == 0) {
     rightAnswerPos = Math.floor((Math.random() * answersAmount));
@@ -151,7 +151,7 @@ function fillAnswerBlocks(type, answersAmount, answerFieldHeight) {
   }
 
   //    Заполнение параграфов вариантами ответов
-  fillAnsweParagraphs(type, answersAmount);
+  fillAnswerParagraphs(type, answersAmount);
 
   //    aesthetics:
   for (let i = 0; i < answerFields.length; i++) {
