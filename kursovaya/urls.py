@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', include('main.urls')),
     path('levels/', include('levels.urls')),
-    path('', RedirectView.as_view(url='main/', permanent=True)),
+    path('', RedirectView.as_view(url='main/', permanent=False)),
 ]
 
 from django.conf import settings
