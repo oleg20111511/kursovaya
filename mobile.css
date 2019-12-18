@@ -13,9 +13,14 @@ body{
   clear: both;
 }
 .FL {
+  width: 20px;
   float: left;
 }
 
+.FC {
+  width: 80px;
+  float: left;
+}
 .FR {
   float: right;
 }
