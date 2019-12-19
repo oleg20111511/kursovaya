@@ -15,13 +15,13 @@ class TutorialTheme(models.Model):
 class Tutorial(models.Model):
 	name = models.CharField(max_length=50, help_text='Название обучалки')
 	theme = models.ForeignKey('TutorialTheme', on_delete=models.CASCADE, null=True)
-	background = models.CharField(max_length=500, help_text='Ссылка/путь к картинке для фона', default='img/working.jpg')
+	background = models.ImageField(upload_to='img/')
 	def __str__(self):
 		return self.name
 
 class LevelTheme(models.Model):
 	name = models.CharField(max_length=50, help_text='Тема уровней', primary_key=True)
-	background = models.CharField(max_length=500, help_text='Ссылка/путь к картинке для фона', default='img/working.jpg')
+	background = models.ImageField(upload_to='img/')
 	
 	def get_absolute_url(self):
 		return reverse('theme-levels', args=[str(self.name)])
@@ -34,7 +34,7 @@ class LevelTheme(models.Model):
 class Level(models.Model):
 	name = models.CharField(max_length=50, help_text='Название уровня')
 	theme = models.ForeignKey('LevelTheme', on_delete=models.CASCADE, null=True)
-	background = models.CharField(max_length=500, help_text='Ссылка/путь к картинке для фона', default='img/working.jpg')
+	background = models.ImageField(upload_to='img/')
 	def __str__(self):
 		return self.name
 	pass

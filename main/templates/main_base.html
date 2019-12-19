@@ -21,11 +21,11 @@
 			</li>
 			<li class="FL"><a href="{% url 'level-theme' %}">Jocurile</a></li>
 			{% if user.is_authenticated %}
-			<li class="FR"><a href="">{{user.get_username}}, мы внутри</a></li>
+			<li class="FR"><a href="/accounts/logout">{{user.get_username}}, мы внутри</a></li>
 			{% else %}
-				<li class="FR"><a href="">logare</a>
+				<li class="FR"><a href="/accounts/login">logare</a>
 				<ul class="drop menu">
-					<li><a href="">înregistrarea</a></li>
+					<li><a href="/profiles/register">înregistrarea</a></li>
 				</ul>
 				</li>
 			{% endif %}

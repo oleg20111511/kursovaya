@@ -3,10 +3,18 @@
 {% block content %}
 <div class="content" id="content">
 	{% if leveltheme_list %}
+				
+		{% load define_counter %}
+		{% define 0 as counter %}
+
 		{% for leveltheme in leveltheme_list %}
+		{% increase counter as counter %}
+		{% decideCB counter as cb_required %}
+		
 		{% load static %}
-		<div onclick="window.location='{{leveltheme.get_absolute_url}}'" class="levelBlock FL" style="background-image: url({% static leveltheme.background %});"></div>
+		<div onclick="window.location='{{leveltheme.get_absolute_url}}'" class="levelBlock FL{% if cb_required %} CB{% endif %}" style="background-image: url({{ MEDIA_URL }}{{leveltheme.background.url}});"></div>
 		{% endfor %}
+		<p class="filler"></p>
 	{% else %}
 	<h1>Нет здесь нихуя, отстань</h1>
 	{% endif %}

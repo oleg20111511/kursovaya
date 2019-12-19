@@ -3,10 +3,19 @@
 {% block content %}
 <div class="content" id="content">
 	{% if tutorialtheme.tutorial_set.all.count > 0 %}
+
+		{% load define_counter %}
+		{% define 0 as counter %}
+
+
 		{% for tutorial in tutorialtheme.tutorial_set.all %}
+		{% increase counter as counter %}
+		{% decideCB counter as cb_required %}
+		
 		{% load static %}
-		<div class="levelBlock FL" style="background-image: url({% static tutorial.background %});"></div>
+		<div class="levelBlock FL{% if cb_required %} CB{% endif %}" style="background-image: url({% static tutorial.background %});"></div>
 		{% endfor %}
+		<p class="filler"></p>
 	{% else %}
 	<h1>Нет здесь нихуя, отстань</h1>
 	{% endif %}
