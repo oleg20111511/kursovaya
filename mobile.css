@@ -13,16 +13,17 @@ body{
   clear: both;
 }
 .FL {
-  width: 20px;
   float: left;
+  width: 15%;
+}
+.FC {
+  float: left;
+  width: 70%;
 }
 
-.FC {
-  width: 80px;
-  float: left;
-}
 .FR {
   float: right;
+  width: 15%;
 }
 
 .navigation {
@@ -35,7 +36,7 @@ body{
 
 
 .menuList {
-  width: 80%;
+  width: 90%;
   height: 100%;
   list-style: none;
   display: inline-block;
@@ -44,14 +45,9 @@ body{
 
 .menuList li {
   white-space: nowrap;
-  width: 15%;
   height: 100%;
   margin: 0;
   z-index: 999;
-}
-
-.firstLi{
-  width: 25% !important;
 }
 
 .menuList li a {
@@ -74,17 +70,24 @@ body{
 
 .drop {
   list-style: none;
+  float: left;
 }
 
 .drop li {
-  width: 60%;
+  width: 100vw;
+  height: 20vh;
   opacity: 0;
-  transform-origin: top center;
+  transform-origin: -200px;
+font-size: auto;
+  z-index: 999;
+  background-color: red;
+  float: right;
 }
 
 .drop li a {
   background-color: rgba(23, 23, 50, 0.7);
   padding: 10px 0;
+  height: 100%;
   z-index: 999;
 }
 
@@ -164,6 +167,7 @@ body{
   background-size: contain;
   text-align: center;
   background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .register {
   margin-top: 30px;
