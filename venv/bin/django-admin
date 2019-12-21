@@ -1,4 +1,4 @@
-#!/media/trilolol/Misc/Projects/django/kursovaya_django/bin/python3
+#!/media/trilolol/Misc/Projects/курсовая/venv/bin/python3.6
 # -*- coding: utf-8 -*-
 import re
 import sys

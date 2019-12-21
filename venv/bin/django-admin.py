@@ -1,4 +1,4 @@
-#!/media/trilolol/Misc/Projects/django/kursovaya_django/bin/python3
+#!/media/trilolol/Misc/Projects/курсовая/venv/bin/python3.6
 from django.core import management
 
 if __name__ == "__main__":
