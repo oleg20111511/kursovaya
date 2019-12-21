@@ -70,11 +70,10 @@ body{
 
 .drop {
   list-style: none;
-  float: left;
 }
 
 .drop li {
-  width: 100vw;
+  width: 10vw;
   height: 20vh;
   opacity: 0;
   transform-origin: -200px;
