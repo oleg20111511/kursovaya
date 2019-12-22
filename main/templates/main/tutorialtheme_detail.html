@@ -13,7 +13,7 @@
 		{% decideCB counter as cb_required %}
 		
 		{% load static %}
-		<div class="levelBlock FL{% if cb_required %} CB{% endif %}" style="background-image: url({% static tutorial.background %});"></div>
+		<div class="levelBlock FL{% if cb_required %} CB{% endif %}" style="background-image: url(/{{ MEDIA_URL }}{{tutorial.background.url}});"></div>
 		{% endfor %}
 		<p class="filler"></p>
 	{% else %}

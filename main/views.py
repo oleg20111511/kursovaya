@@ -1,8 +1,6 @@
 from django.shortcuts import render
-from django.conf import settings
 from .models import TutorialTheme, Tutorial, LevelTheme, Level
 from django.views import generic
-import os
 # Create your views here.
 
 def index(request):
