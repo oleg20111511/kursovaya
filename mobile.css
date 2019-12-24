@@ -18,7 +18,7 @@ body{
 }
 .FC {
   float: left;
-  width: 60%;
+  width: 70%;
 }
 
 .FR {
@@ -70,6 +70,7 @@ body{
 
 .drop {
   list-style: none;
+  float: left;
 }
 
 .drop li {
