@@ -4,39 +4,66 @@
 <head>
   <meta charset="utf-8">
   <title>Курсовая</title>
-  <link href="index.css" rel="stylesheet" type="text/css">
-</head>
+  <link href="mobile.css" rel="stylesheet" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    //        Потом сделаю
+    var blocks = [
+      [
+        'backgrounds/bg0.jpg',
+        {
+          link: 'rickroll.js',
+          bg: 'backgrounds/bg1.jpg'
+        },
+        {
+          link: 'rickroll.js',
+          bg: 'backgrounds/bg2.jpg'
+        },
+        {
+          link: 'rickroll.js',
+          bg: 'backgrounds/bg3.jpg'
+        },
+        {
+          link: 'rickroll.js',
+          bg: 'backgrounds/bg4.jpg'
+        },
+        {
+          link: 'rickroll.js',
+          bg: 'backgrounds/bg5.jpg'
+        }
+      ],
+      [
+        'backgrounds/bg2_0.jpg',
+        {
+          link: 'rickroll.js',
+          bg: 'backgrounds/bg2_1.jpg'
+        },
+        {
+          link: 'rickroll.js',
+          bg: 'backgrounds/bg2_2.jpg'
+        }
+      ]
+    ]
 
+  </script>
+  <script src="CreateBlocks.js"></script>
+</head>
 <body class="body">
+
   <nav class='navigation'>
     <ul class="menuList">
-      <li class="FL firstLi"><a href="index.html">Главная</a>
-      <ul class="drop menu"><li><a href="mobile.html">Мобильная версия</a></li></ul></li>
-      <li class="FL"><a href="Learning.html">Уровни</a>
-        <ul class="drop menu dropMenuSmall">
-          <li><a href="123">-"a"</a></li>
-          <li><a href="123">-"ea"</a></li>
-          <li><a href="123">-"i"</a></li>
-        </ul>
-      </li>
-      <li class="FL"><a href="Levels.html">Игры</a></li>
-      <li class="FR" align="right"><a href="123">Регистрация</a>
-        <ul class="drop menu">
-          <li><a href="1">Вход</a></li>
-        </ul>
-      </li>
+      <li class="FL"><div class="burger"></div>
+	  <ul class="drop menu">
+          <li><a href="mobile.html">Главная</a></li>
+          <li><a href="Levels.html">Обучение</a></li>
+          <li><a href="Learning.html">Игры</a></li>
+        </ul></li>
+      <li class="FC"><a href="index.html" class="FA">Курсач</a></li>
+      <li class="FR"><a href="ОЛЕжА.html" class="FA">Вход</a></li>
     </ul>
-  </nav>
+</nav>
+  
+<div class="CB main"><div class="content" id="content"></div></div>
 
-
-  <!-- Этот div будет содержать фон -->
-  <div class="CB main">
-    <!-- Этот div будет прозрачным, нужен для выравнивания -->
-    <div class="content" id="content">
-      <p>Тут инфа про то, что наш сайт офигенен</p>
-      <input type="button" class="register" value="Нажать, чтобы выучить румынский">
-    </div>
-  </div>
 </body>
-
 </html>
