@@ -1,0 +1,63 @@
+{% extends 'level_base.html' %}
+
+
+{% block script %}
+	{% load serve_questions %}
+	'use strict';
+	var questions = [
+	{% for question in level.question_set.all %}
+		{
+			{% if question.use_template %}
+				template: true,
+				{% if question.text %}text: '{{question.text}}',{% endif %}
+				{% if question.image %}image: '/{{ MEDIA_URL }}{{question.image.url}}',{% endif %}
+				{% if question.audio %}audio: '/{{ MEDIA_URL }}{{question.audio.url}})',{% endif %}
+				
+			{% else %}
+				template: false,
+				filelink: '/{{question.customHTML.url}}',
+			{% endif %}
+			
+			{% sort_answers question.answer_set.all as answers %}
+			{% if question.qtype == 0 %}
+			type: 0,
+			rightAnswer: '{{ answers.right.0 }}',
+			wrongAnswers: [
+				{% for i in answers.wrong %}
+				'{{i}}',
+				{% endfor %}
+			],
+			{% elif question.qtype == 1 %}
+			type: 1,
+			rightAnswers: [
+				{% for i in answers.right %}
+				'{{i}}',
+				{% endfor %}
+			],
+			wrongAnswers: [
+				{% for i in answers.wrong %}
+				'{{i}}',
+				{% endfor %}
+			],
+			{% else %}
+			type: 2,
+			rightAnswers: [
+				{% for i in answers.right %}
+				'{{i}}',
+				{% endfor %}
+			],
+			{% endif %}
+		},
+	{% endfor %}
+	]
+{% endblock %}
+
+
+{% block question %}
+	<p>1</p>
+{% endblock %}
+
+
+{% block answers %}
+	<p>2</p>
+{% endblock %}
