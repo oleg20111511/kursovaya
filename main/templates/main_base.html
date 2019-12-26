@@ -15,7 +15,8 @@
 			<li class="FL"><a href="#">Pregătire</a>
 				<ul class="drop menu dropMenuSmall">
 					{% for theme in tutorial_themes %}
-					<li><a href="{{ theme.get_absolute_url }}">-{{ theme.name }}</a></li>
+					{% load define_counter %}
+					<li><a href="{{ theme.get_absolute_url }}">-{% replacesymbols theme.name %}</a></li>
 					{% endfor %}
 				</ul>
 			</li>

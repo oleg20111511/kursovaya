@@ -162,6 +162,7 @@ function fillAnswerBlocks(type, answersAmount, answerFieldHeight) {
 
 //Загружает список вопросов, после полной загрузки запускает start()
 window.onload = function() {
+	window.onresize();
 	start();
 }
 
@@ -198,6 +199,9 @@ window.onresize = function() {
 	if (started) {
 		let image = document.getElementById('image');
 		if (image != null) {
+			if (image.clientWidth == 0){
+				setTimeout(window.onresize, 1000)
+			}
 			image.style.width = 'auto';
 			image.style.height = '60%';
 			if(image.clientWidth > questionsBlock.clientWidth){
@@ -303,8 +307,8 @@ function chooseButton(option) {
 		paragraph.style.color = '#7B68EE';
 
 	} else {
-		paragraph.chosen = true;
 		if (chosenFields.length == rightAnswersAmount) return;
+		paragraph.chosen = true;
 		chosenFields.push(option);
 		paragraph.style.color = '#DDA0DD';
 	}

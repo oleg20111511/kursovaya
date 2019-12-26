@@ -11,7 +11,7 @@
 				template: true,
 				{% if question.text %}text: '{{question.text}}',{% endif %}
 				{% if question.image %}image: '/{{ MEDIA_URL }}{{question.image.url}}',{% endif %}
-				{% if question.audio %}audio: '/{{ MEDIA_URL }}{{question.audio.url}})',{% endif %}
+				{% if question.audio %}audio: '/{{ MEDIA_URL }}{{question.audio.url}}',{% endif %}
 				
 			{% else %}
 				template: false,
