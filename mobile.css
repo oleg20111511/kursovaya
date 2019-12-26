@@ -68,15 +68,14 @@ body{
   background-color: #631818;
 }
 
-.drop { 
+.drop {
   margin-top: 30px;
   list-style: none;
   float: left;
   z-index: -99999px;
 }
-
 .drop:hover {
-	background: #631818;
+	display: none;
 }
 
 .drop li {
@@ -104,25 +103,25 @@ font-size: auto;
   z-index: -9999;
 }
 
-.FL:hover .menu li:first-of-type {
+.menuList li:hover .menu li:first-of-type {
   animation: menu2 0.3s ease-in-out forwards;
   animation-delay: 0.3s;
   z-index: 999;
 }
 
-.FL:hover .menu li:nth-of-type(2) {
+.menuList li:hover .menu li:nth-of-type(2) {
   animation: menu2 0.3s ease-in-out forwards;
   animation-delay: 0.4s;
   z-index: 999;
 }
 
-.FL:hover .menu li:nth-of-type(3) {
+.menuList li:hover .menu li:nth-of-type(3) {
   animation: menu2 0.3s ease-in-out forwards;
   animation-delay: 0.5s;
   z-index: 999;
 }
 
-.FL:hover .menu li:last-of-type {
+.menuList li:hover .menu li:last-of-type {
   animation: menu2 0.3s ease-in-out forwards;
   animation-delay: 0.6s;
   z-index: 999;
@@ -183,14 +182,14 @@ font-size: auto;
   border-radius: 40px;
 }
 .burger{
-		 width: 18px;
-		 height: 6px;
-		 background: #B0C4DE;
-		 right: 5px;
-		 bottom: 10px;
-		 box-shadow:  0 12px #B0C4DE;
-		 margin-top: 20px;
-         margin-left: 40%;
+ width: 18px;
+ height: 6px;
+ background: #B0C4DE;
+ right: 5px;
+ bottom: 10px;
+ box-shadow:  0 12px #B0C4DE;
+ margin-top: 20px;
+ margin-left: 40%;
 }
 
 .adjustHeight{
