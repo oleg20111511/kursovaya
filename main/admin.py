@@ -9,11 +9,12 @@ class TutorialInline(admin.TabularInline):
 
 @admin.register(TutorialTheme)
 class TutorialThemeAdmin(admin.ModelAdmin):
+	list_display = ('name', 'get_tutorials_amount')
 	inlines = [TutorialInline]
 
 @admin.register(Tutorial)
 class TutorialAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('name', 'theme')
 
 
 
@@ -23,8 +24,9 @@ class LevelInline(admin.TabularInline):
 
 @admin.register(LevelTheme)
 class LevelThemeAdmin(admin.ModelAdmin):
+	list_display = ('name', 'get_levels_amount')
 	inlines = [LevelInline]
 
 @admin.register(Level)
 class LevelAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('name', 'theme')

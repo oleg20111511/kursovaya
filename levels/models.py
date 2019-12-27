@@ -7,6 +7,9 @@ class Level(models.Model):
 	name = models.CharField(max_length=100, verbose_name='Название уровня:', primary_key=True)
 	def get_absolute_url(self):
 		return reverse('level', args=[str(self.name)])
+	def get_questions_amount(self):
+		return self.question_set.all().count()
+	get_questions_amount.short_description = 'Количество вопросов:'
 	def __str__(self):
 		return self.name
 
@@ -17,7 +20,7 @@ class Question(models.Model):
 	image = models.ImageField(upload_to='levels/img/', null=True, verbose_name='Картинка:', blank=True)
 	text = models.CharField(max_length=500, null=True, verbose_name='Надпись:', blank=True)
 	audio = models.FileField(upload_to='levels/audio/', null=True, verbose_name='Аудио:', blank=True)
-	customHTML = models.FileField(upload_to='levels/customHTML', null=True, verbose_name='Свой вариант страницы:', blank=True)
+	customHTML = models.FileField(upload_to='levels/customHTML', null=True, verbose_name='Свой вариант страницы:', blank=True, help_text='Не работает, если включено "Использовать шаблон"')
 	QUESTION_TYPE = (
 		(0, 'Один вариант ответа'),
 		(1, 'Несколько вариантов ответа'),
