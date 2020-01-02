@@ -155,7 +155,7 @@ body{
   background: url(50%-transparent-white.png);
   background: rgba(255, 255, 255, 0.5);
   z-index: -1000;
-  height: calc(100vh - 80px);
+  height: 100%;
 }
 
 
