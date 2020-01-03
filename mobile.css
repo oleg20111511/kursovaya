@@ -15,7 +15,6 @@ body{
 .DL:hover .drop{
 	display: block;
 }
-}
 .FL {
   float: left;
 }
@@ -45,7 +44,6 @@ body{
   text-align: center;
   z-index: -123;
 }
-
 
 .menuList {
   width: 100%;
