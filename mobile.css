@@ -13,7 +13,10 @@ body{
 .CB {
   clear: both;
 }
-.FL {
+.FL{
+ float: left;
+}
+.DL {
   float: left;
   width: 15%;
   height: 50px;
@@ -21,7 +24,7 @@ body{
 .drop {
 	display: none;
 }
-.FL:hover .drop{
+.DL:hover .drop{
 	display: block;
 }
 .FC {
@@ -106,25 +109,25 @@ body{
   z-index: -9999;
 }
 
-.FL:hover .menu li:first-of-type {
+.DL:hover .menu li:first-of-type {
   animation: menu2 0.3s ease-in-out forwards;
   animation-delay: 0.3s;
   z-index: 999;
 }
 
-.FL:hover .menu li:nth-of-type(2) {
+.DL:hover .menu li:nth-of-type(2) {
   animation: menu2 0.3s ease-in-out forwards;
   animation-delay: 0.4s;
   z-index: 999;
 }
 
-.FL:hover .menu li:nth-of-type(3) {
+.DL:hover .menu li:nth-of-type(3) {
   animation: menu2 0.3s ease-in-out forwards;
   animation-delay: 0.5s;
   z-index: 999;
 }
 
-.FL:hover .menu li:last-of-type {
+.DL:hover .menu li:last-of-type {
   animation: menu2 0.3s ease-in-out forwards;
   animation-delay: 0.6s;
   z-index: 999;
