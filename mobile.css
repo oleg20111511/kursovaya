@@ -12,13 +12,17 @@ body{
 .drop {
 	display: none;
 }
-.FL:hover .drop{
+.DL:hover .drop{
 	display: block;
+}
+}
+.FL {
+  float: left;
 }
 .CB {
   clear: both;
 }
-.FL {
+.DL {
   float: left;
   width: 15%;
   height: 50px;
@@ -37,7 +41,7 @@ body{
 }
 .navigation {
   height: 50px;
-  background-color: rgba(23, 23, 50, 0.7);
+  background-color: rgba(23, 23, 50, 1);
   text-align: center;
   z-index: -123;
 }
