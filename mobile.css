@@ -9,22 +9,20 @@
 body{
   background-image: linear-gradient(to left, rgb(255, 33, 129), rgb(250, 72, 125), rgb(245, 110, 121), rgb(240, 149, 116), rgb(235, 187, 112), rgb(230, 226, 108), rgb(202, 201, 133), rgb(174, 175, 157), rgb(146, 150, 182), rgb(117, 125, 206), rgb(89, 99, 231), rgb(61, 74, 255));
 }
-.drop {
-	display: none;
-}
-.DL:hover .drop{
-	display: block;
-}
-.FL {
-  float: left;
-}
+
 .CB {
   clear: both;
 }
-.DL {
+.FL {
   float: left;
   width: 15%;
   height: 50px;
+}
+.drop {
+	display: none;
+}
+.FL:hover .drop{
+	display: block;
 }
 .FC {
   float: left;
@@ -40,10 +38,11 @@ body{
 }
 .navigation {
   height: 50px;
-  background-color: rgba(23, 23, 50, 0,7);
+  background-color: rgba(23, 23, 50, 0.7);
   text-align: center;
   z-index: -123;
 }
+
 
 .menuList {
   width: 100%;
