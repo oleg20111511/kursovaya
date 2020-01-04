@@ -16,9 +16,3 @@ def decideCB(val=None):
 def increase(val=None):
 	val += 1
 	return val
-
-@register.simple_tag
-def replacesymbols(val=None):
-	output = val.replace('_', ' ')
-	print(output)
-	return output

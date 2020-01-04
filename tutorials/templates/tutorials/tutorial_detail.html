@@ -1,0 +1,23 @@
+{% extends 'tutorial_base.html' %}
+
+
+{% block script %}
+	'use strict';
+	var tutorials = [
+	{% for rule in tutorial.rule_set.all %}
+		{
+			{% if rule.use_template %}
+				template: true,
+				{% if rule.text %}text: '{{rule.text}}',{% endif %}
+				{% if rule.image %}image: '/{{ MEDIA_URL }}{{rule.image.url}}',{% endif %}
+				{% if rule.audio %}audio: '/{{ MEDIA_URL }}{{rule.audio.url}}',{% endif %}
+				
+			{% else %}
+				template: false,
+				filelink: '/{{rule.customHTML.url}}'
+			{% endif %}
+		},
+	{% endfor %}
+	]
+{% endblock %}
+

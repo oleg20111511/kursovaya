@@ -23,6 +23,7 @@ urlpatterns = [
 	path('admin/', admin.site.urls),
 	path('main/', include('main.urls')),
 	path('levels/', include('levels.urls')),
+	path('tutorials/', include('tutorials.urls')),
 	path('accounts/', include('django.contrib.auth.urls')),
 	path('profiles/', include('profiles.urls')),
 	path('', RedirectView.as_view(url='main/', permanent=False))

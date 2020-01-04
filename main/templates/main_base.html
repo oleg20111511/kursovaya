@@ -12,15 +12,16 @@
 	<nav class='navigation'>
 		<ul class="menuList">
 			<li class="FL firstLi"><a href="{% url 'index' %}">Pagina principală</a></li>
-			<li class="FL"><a href="#">Pregătire</a>
+			<li class="FL"><a href="{% url 'tutorial-theme-theme-list' %}">Pregătire</a>
 				<ul class="drop menu dropMenuSmall">
+					{% load get_tutorials %}
+					{% get_tutorial_list as tutorial_themes %}
 					{% for theme in tutorial_themes %}
-					{% load define_counter %}
 					<li><a href="{{ theme.get_absolute_url }}">-{% replacesymbols theme.name %}</a></li>
 					{% endfor %}
 				</ul>
 			</li>
-			<li class="FL"><a href="{% url 'level-theme' %}">Jocurile</a></li>
+			<li class="FL"><a href="{% url 'level-theme-theme-list' %}">Jocurile</a></li>
 			{% if user.is_authenticated %}
 			<li class="FR"><a href="/accounts/logout">{{user.get_username}}, мы внутри</a></li>
 			{% else %}

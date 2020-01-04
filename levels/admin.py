@@ -9,6 +9,7 @@ class QuestionInline(admin.TabularInline):
 
 @admin.register(Level)
 class LevelAdmin(admin.ModelAdmin):
+	view_on_site = True
 	inlines = [QuestionInline]
 	list_display = ('name', 'get_questions_amount')
 
@@ -18,10 +19,11 @@ class AnswerInline(admin.TabularInline):
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
+	search_fields = ('name', )
 	list_display = ('name', 'level')
 	fieldsets = (
 		(None, {
-			'fields': ('name', 'level', 'customHTML', 'use_template')
+			'fields': ('name', 'level', 'customHTML', 'use_template', 'qtype')
 		}),
 		('Настройки шаблона', {
 			'classes': ('collapse',),
