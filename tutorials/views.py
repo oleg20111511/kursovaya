@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from main.models import Level
+from main.models import Tutorial as TutorialLink
 from .models import Tutorial
 from django.views import generic
 from django.shortcuts import render
@@ -7,7 +9,9 @@ from django.shortcuts import render
 class TutorialDetailView(generic.DetailView):
 	model = Tutorial
 
-def LevelFinish(request, pk):
-	tutorial = Tutorial.objects.get(pk=pk)
-	context = {'tutorial': tutorial, 'finished': True}
+def TutorialFinish(request, pk):
+	tutorial = TutorialLink.objects.get(name=pk)
+	level = Level.objects.get(name=tutorial.name)
+	image = level.background.url
+	context = {'tutorial': tutorial, 'image': image, 'finished': True}
 	return render(request, 'finish.html', context)

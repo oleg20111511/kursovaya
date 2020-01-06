@@ -247,6 +247,7 @@ function createInput() {
 	answersBlock.appendChild(next);
 }
 
+//Заполняет блок вопроса
 function loadQuestion(question) {
 	if (question.template == true){
 		questionsBlock.innerHTML = '';
@@ -263,6 +264,7 @@ function loadQuestion(question) {
 		questionsBlock.appendChild(iframe);
 	}
 }
+
 //Отображает текущий вопрос
 function changeQuestion() {
 	answersBlock.innerHTML = ' ';
@@ -359,30 +361,82 @@ function chooseAnswer(option, buttonType) {
 
 }
 
-//Переход на страницу результата
-function proceed(right) {
-	started = false;
-	switch (right) {
-		case true:
-			questionsBlock.innerHTML = 'Верно';
-			break;
-		case false:
-			questionsBlock.innerHTML = 'Неверно';
-			break;
-	}
-
-	//Очистка блока ответов, создание кнопки далее.
-	let button = document.createElement('button');
-	button.innerHTML = 'Далее';
-	answersBlock.innerHTML = ' ';
-	answersBlock.appendChild(button);
-	button.onclick = function() {
+//Создание кнопки далее
+function addNextButton() {
+	let buttonFieldHeight = (window.innerHeight * 0.4) + 'px';
+	//    Создание блока для кнопки
+	let field = document.createElement("div");
+	field.style.height = buttonFieldHeight;
+	field.onclick = function() {
 		if (currentQuestion == questions.length) {
 			showResults();
 		} else {
 			changeQuestion();
 		}
 	};
+
+	field.style.width = '100%'
+	answersBlock.appendChild(field);
+	answerFields = [field];
+
+	//Создание кнопки
+	let paragraph = document.createElement("p");
+	paragraph.id = 'button';
+	paragraph.innerHTML = 'Далее';
+	field.appendChild(paragraph);
+	answerParagraphs = [paragraph];
+
+	//aesthetics:
+	paragraph.addEventListener('mouseenter', function() {
+	paragraph.style.color = '#7B68EE';
+	})
+	paragraph.addEventListener('mouseleave', function() {
+	paragraph.style.color = 'white';
+	})
+	// Вертикально выравнивает параграф внутри блока
+	let margin = (field.clientHeight - paragraph.clientHeight) / 2;
+	paragraph.style.marginTop = margin + 'px';
+	//    ***********
+}
+
+//Создаёт h1 с правильным ответом
+function showCorrect(question) {
+	switch (question.type) {
+		case 0:
+			return `<h1 style="padding-top:50px;">Правильный ответ - ${question.rightAnswer}</h1>`;
+
+		case 1:
+			let s = '<h1 style="padding-top:50px;">Правильные ответы: ';
+			//Добавляет к строке каждый верный ответ из списка правильных ответов
+			let i = 0;
+			for (i=0; i<question.rightAnswers.length; i++){
+				s += question.rightAnswers[i] + ', ';
+			}
+			//Срезает последние ', ', добавляет окончание тега
+			s = s.slice(0, s.length - 2) + '</h1>'
+			return s;
+
+		case 2:
+			return `<h1 style="padding-top:50px;">Правильный ответ - ${question.rightAnswers[0]}</h1>`
+	}
+}
+//Переход на страницу результата
+function proceed(right) {
+	started = false;
+	switch (right) {
+		case true:
+			questionsBlock.innerHTML = '<h1 style="padding-top:50px;">Абсолютно верно!</h1>';
+			break;
+		case false:
+			let correction = showCorrect(questions[currentQuestion]);
+			questionsBlock.innerHTML = `<h1 style="padding-top:50px;">К сожалению, ответ неверный!</h1>${correction}`;
+			break;
+	}
+
+	//Очистка блока ответов, создание кнопки далее.
+	answersBlock.innerHTML = '';
+	addNextButton();
+
 	currentQuestion++;
 }
 

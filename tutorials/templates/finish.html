@@ -5,8 +5,7 @@
 <h2 class="congratulations">Поздравляем, ты завершил обучение по теме {{tutorial.name}} в разделе {{tutorial.theme}}!</h2>
 <h2 class="congratulations">Теперь ты на один шаг ближе к званию Мастера румынского языка!</h2>
 <h2 class="congratulations">Также не забудь пройти уровень, чтобы закрепить знания по изученной теме:</h2>
-{% load get_level %}
-<div class="levelBlock" style="background-image: url(/{{ MEDIA_URL }}{% get_level_image tutorial.name %});" id="levelBlock" onclick="window.location='/levels/{{tutorial.name}}'"></div>
+<div class="levelBlock" style="background-image: url(/{{ MEDIA_URL }}{{image}});" id="levelBlock" onclick="window.location='/levels/{{tutorial.name}}'"></div>
 {% endblock %}
 
 {% block script %}

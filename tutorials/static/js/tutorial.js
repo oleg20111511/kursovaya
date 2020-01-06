@@ -7,70 +7,68 @@ var buttonField = undefined;
 
 //Функция перемешивания массивов
 function shuffle(a) {
-  var j, x, i;
-  for (i = a.length - 1; i > 0; i--) {
-    j = Math.floor(Math.random() * (i + 1));
-    x = a[i];
-    a[i] = a[j];
-    a[j] = x;
-  }
-  return a;
+	var j, x, i;
+	for (i = a.length - 1; i > 0; i--) {
+	j = Math.floor(Math.random() * (i + 1));
+	x = a[i];
+	a[i] = a[j];
+	a[j] = x;
+	}
+	return a;
 }
 
 
 //Оформление блока кнопки
-function addNextButton(buttonFieldHeight) {
-  let tutorial = tutorials[currentTutorial];
+function addNextButton() {
+	let buttonFieldHeight = (window.innerHeight * 0.2) + 'px';
 
-  //    Создание блока для кнопки
-  let field = document.createElement("div");
-  field.style.height = buttonFieldHeight;
-  field.onclick = function() {
-    proceed()
-  };
+	//    Создание блока для кнопки
+	let field = document.createElement("div");
+	field.style.height = buttonFieldHeight;
+	field.onclick = function() {
+	proceed()
+	};
 
-  field.style.width = '100%'
-  buttonBlock.appendChild(field);
-  buttonField = field;
+	field.style.width = '100%'
+	buttonBlock.appendChild(field);
+	buttonField = field;
 
-  let paragraph = document.createElement("p");
-  paragraph.id = 'button';
-  paragraph.innerHTML = 'Далее';
-  field.appendChild(paragraph);
+	//Создание кнопки
+	let paragraph = document.createElement("p");
+	paragraph.id = 'button';
+	paragraph.innerHTML = 'Далее';
+	field.appendChild(paragraph);
 
-  //aesthetics:
-  paragraph.addEventListener('mouseenter', function() {
-    paragraph.style.color = '#7B68EE';
-  })
-  paragraph.addEventListener('mouseleave', function() {
-    paragraph.style.color = 'white';
-  })
-  // Вертикально выравнивает параграф внутри блока
-  let margin = (field.clientHeight - paragraph.clientHeight) / 2;
-  paragraph.style.marginTop = margin + 'px';
-  //    ***********
+	//aesthetics:
+	paragraph.addEventListener('mouseenter', function() {
+	paragraph.style.color = '#7B68EE';
+	})
+	paragraph.addEventListener('mouseleave', function() {
+	paragraph.style.color = 'white';
+	})
+	// Вертикально выравнивает параграф внутри блока
+	let margin = (field.clientHeight - paragraph.clientHeight) / 2;
+	paragraph.style.marginTop = margin + 'px';
+	//    ***********
 }
 
 //Загружает список обучений, задаёт высоту, после полной загрузки запускает changeTutorial
 window.onload = function() {
-  //    aesthetics:
-  document.getElementById('main').style.height = window.innerHeight + 'px';
-  if (window.innerHeight > window.innerWidth) {
-    document.getElementById('main').style.width = '90%';
-  }
-  document.getElementById('question').style.height = (window.innerHeight * 0.8) + 'px';
-  document.getElementById('answers').style.height = (window.innerHeight * 0.2) + 'px';
-  //  ***********
+	//    aesthetics:
+	document.getElementById('main').style.height = window.innerHeight + 'px';
+	if (window.innerHeight > window.innerWidth) {
+	document.getElementById('main').style.width = '90%';
+	}
+	document.getElementById('question').style.height = (window.innerHeight * 0.8) + 'px';
+	document.getElementById('answers').style.height = (window.innerHeight * 0.2) + 'px';
+	//  ***********
 
-  tutorialBlock = document.getElementById('question');
-  buttonBlock = document.getElementById('answers')
+	tutorialBlock = document.getElementById('question');
+	buttonBlock = document.getElementById('answers')
 
-  let buttonFieldHeight = undefined;
-	//Просчёт высоты блоков для ответа, старт функции заполнения
-	buttonFieldHeight = (window.innerHeight * 0.2) + 'px';
-	addNextButton(buttonFieldHeight);
+	addNextButton();
 
-  changeTutorial();
+	changeTutorial();
 }
 
 //aesthetics:
@@ -104,6 +102,7 @@ window.onresize = function() {
 	}
 }
 
+//Заполняет блок вопроса
 function loadTutorial(tutorial) {
 	if (tutorial.template == true){
 		tutorialBlock.innerHTML = '';
@@ -142,7 +141,7 @@ function proceed(right) {
 	}
 }
 
-//Отображение результатов, сделаю потом
+//Отображение страницы с поощрением
 function showResults() {
 	window.location += '/finish';
 }
