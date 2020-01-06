@@ -29,7 +29,7 @@ class TutorialTheme(models.Model):
 		return self.name
 
 class Tutorial(models.Model):
-	name = models.CharField(max_length=50, verbose_name='Название обучалки')
+	name = models.CharField(max_length=50, verbose_name='Название обучалки', unique=True)
 	theme = models.ForeignKey('TutorialTheme', on_delete=models.CASCADE, null=True, verbose_name='Тема')
 	background = models.ImageField(upload_to='img/', verbose_name='Фон')
 	def get_absolute_url(self):
@@ -64,7 +64,7 @@ class LevelTheme(models.Model):
 		return self.name
 
 class Level(models.Model):
-	name = models.CharField(max_length=50, verbose_name='Название уровня')
+	name = models.CharField(max_length=50, verbose_name='Название уровня', unique=True)
 	theme = models.ForeignKey('LevelTheme', on_delete=models.CASCADE, null=True, verbose_name='Тема')
 	background = models.ImageField(upload_to='img/', verbose_name='Фон')
 	def get_absolute_url(self):

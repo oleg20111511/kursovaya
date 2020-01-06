@@ -1,12 +1,10 @@
 from django.shortcuts import render
-from .models import TutorialThemeTheme, TutorialTheme, Tutorial, LevelThemeTheme, LevelTheme, Level
+from .models import TutorialThemeTheme, TutorialTheme, LevelThemeTheme, LevelTheme
 from django.views import generic
 # Create your views here.
 
-tutorial_themes = TutorialTheme.objects.all()
-
 def index(request):
-	return render(request, 'index.html', context={'tutorial_themes': tutorial_themes})
+	return render(request, 'index.html')
 
 class TutorialThemeThemeDetailView(generic.DetailView):
 	model = TutorialThemeTheme

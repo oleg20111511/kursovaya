@@ -1,0 +1,20 @@
+{% extends 'tutorial_base.html' %}
+
+
+{% block question %}
+<h2 class="congratulations">Поздравляем, ты завершил обучение по теме {{tutorial.name}} в разделе {{tutorial.theme}}!</h2>
+<h2 class="congratulations">Теперь ты на один шаг ближе к званию Мастера румынского языка!</h2>
+<h2 class="congratulations">Также не забудь пройти уровень, чтобы закрепить знания по изученной теме:</h2>
+{% load get_level %}
+<div class="levelBlock" style="background-image: url(/{{ MEDIA_URL }}{% get_level_image tutorial.name %});" id="levelBlock" onclick="window.location='/levels/{{tutorial.name}}'"></div>
+{% endblock %}
+
+{% block script %}
+window.onload = function(){
+	let block = document.getElementById('question');
+	block.style.height = window.innerHeight + 'px';
+	level = document.getElementById('levelBlock');
+	level.style.height = (level.clientWidth * 0.56) + 'px';
+}
+window.onresize = window.onload;
+{% endblock %}

@@ -15,9 +15,9 @@ class Rule(models.Model):
 	name = models.CharField(max_length=100, verbose_name='Название правила')
 	tutorial = models.ForeignKey(Tutorial, on_delete=models.SET_NULL, verbose_name='Обучалка', null=True)
 	use_template = models.BooleanField(default=True, verbose_name='Использовать шаблон?')
-	image = models.ImageField(upload_to='levels/img/', null=True, verbose_name='Картинка', blank=True)
+	image = models.ImageField(upload_to='tutorials/img/', null=True, verbose_name='Картинка', blank=True)
 	text = models.CharField(max_length=500, null=True, verbose_name='Надпись', blank=True)
-	audio = models.FileField(upload_to='levels/audio/', null=True, verbose_name='Аудио', blank=True)
-	customHTML = models.FileField(upload_to='levels/customHTML', null=True, verbose_name='Свой вариант страницы', blank=True, help_text='Не работает, если включено "Использовать шаблон"')
+	audio = models.FileField(upload_to='tutorials/audio/', null=True, verbose_name='Аудио', blank=True)
+	customHTML = models.FileField(upload_to='tutorials/customHTML/', null=True, verbose_name='Свой вариант страницы', blank=True, help_text='Не работает, если включено "Использовать шаблон"')
 	def __str__(self):
 		return self.name

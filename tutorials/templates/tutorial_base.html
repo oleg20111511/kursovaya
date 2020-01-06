@@ -9,7 +9,7 @@
 	<script>
 		{% block script %} {% endblock %}
 	</script>
-	<script src="{% static 'js/tutorial.js' %}"></script>
+	{% if not finished %}<script src="{% static 'js/tutorial.js' %}"></script>{% endif %}
 </head>
 
 <body class="body">

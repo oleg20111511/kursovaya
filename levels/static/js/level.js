@@ -79,7 +79,7 @@ function createExplanatoryBlock(type) {
 	let explanation = undefined;
 	switch (type) {
 		case 0:
-			explanation = 'Выберите вариант ответа:'
+			explanation = 'Выбери вариант ответа:'
 			break;
 		case 1:
 			let rightAnswersAmount = question.rightAnswers.length;
@@ -93,10 +93,10 @@ function createExplanatoryBlock(type) {
 				default:
 					ending = 'ов';
 			}
-			explanation = `Выберите ${rightAnswersAmount} вариант${ending} ответа:`
+			explanation = `Выбери ${rightAnswersAmount} вариант${ending} ответа:`
 			break;
 		case 2:
-			explanation = 'Введите ответ:';
+			explanation = 'Введи ответ:';
 			break;
 	}
 	explanatoryHeader.innerHTML = explanation;

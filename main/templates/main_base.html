@@ -11,8 +11,8 @@
 <body class="body">
 	<nav class='navigation'>
 		<ul class="menuList">
-			<li class="FL firstLi"><a href="{% url 'index' %}">Pagina principală</a></li>
-			<li class="FL"><a href="{% url 'tutorial-theme-theme-list' %}">Pregătire</a>
+			<li class="FL firstLi"><a href="{% url 'index' %}">Главная страница</a></li>
+			<li class="FL"><a href="{% url 'tutorial-theme-theme-list' %}">Обучение</a>
 				<ul class="drop menu dropMenuSmall">
 					{% load get_tutorials %}
 					{% get_tutorial_list as tutorial_themes %}
@@ -21,13 +21,13 @@
 					{% endfor %}
 				</ul>
 			</li>
-			<li class="FL"><a href="{% url 'level-theme-theme-list' %}">Jocurile</a></li>
+			<li class="FL"><a href="{% url 'level-theme-theme-list' %}">Игры</a></li>
 			{% if user.is_authenticated %}
 			<li class="FR"><a href="/accounts/logout">{{user.get_username}}, мы внутри</a></li>
 			{% else %}
-				<li class="FR"><a href="/accounts/login">logare</a>
+				<li class="FR"><a href="/accounts/login">Вход</a>
 				<ul class="drop menu">
-					<li><a href="/profiles/register">înregistrarea</a></li>
+					<li><a href="/profiles/register">Регистрация</a></li>
 				</ul>
 				</li>
 			{% endif %}

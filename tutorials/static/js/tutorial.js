@@ -144,6 +144,5 @@ function proceed(right) {
 
 //Отображение результатов, сделаю потом
 function showResults() {
-	window.onresize = function() { }
-	document.getElementById('main').innerHTML = 'Поздравляем! Вы завершили обучение по теме *Здесь будет название темы*! Теперь вы можете пройти уровень, чтобы закрепить знания по ней! *Ссылка на уровень*';
+	window.location += '/finish';
 }
