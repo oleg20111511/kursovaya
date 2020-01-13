@@ -1,12 +1,12 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import TutorialThemeTheme, TutorialTheme, Tutorial, LevelThemeTheme, LevelTheme, Level
+from .models import TutorialTheme, Tutorial, LevelThemeTheme, LevelTheme, Level
 
 
-@admin.register(TutorialThemeTheme)
-class TutorialThemeThemeAdmin(admin.ModelAdmin):
-	list_display = ('name', 'get_tutorialthemes_amount')
+# @admin.register(TutorialThemeTheme)
+# class TutorialThemeThemeAdmin(admin.ModelAdmin):
+# 	list_display = ('name', 'get_tutorialthemes_amount')
 
 class TutorialInline(admin.TabularInline):
 	model = Tutorial

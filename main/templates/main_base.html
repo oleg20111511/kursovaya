@@ -12,7 +12,7 @@
 	<nav class='navigation'>
 		<ul class="menuList">
 			<li class="FL firstLi"><a href="{% url 'index' %}">Главная страница</a></li>
-			<li class="FL"><a href="{% url 'tutorial-theme-theme-list' %}">Обучение</a>
+			<li class="FL"><a href="{% url 'tutorial-theme-list' %}">Обучение</a>
 				<ul class="drop menu dropMenuSmall">
 					{% load get_tutorials %}
 					{% get_tutorial_list as tutorial_themes %}
