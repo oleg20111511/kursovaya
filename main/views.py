@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import TutorialTheme, LevelThemeTheme, LevelTheme
 from django.views import generic
+from django.http import JsonResponse
 # Create your views here.
 
 def index(request):

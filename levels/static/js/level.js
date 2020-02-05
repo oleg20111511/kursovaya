@@ -161,7 +161,9 @@ function fillAnswerBlocks(type, answersAmount, answerFieldHeight) {
 //Загружает список вопросов, после полной загрузки запускает start()
 window.onload = function() {
 	window.onresize();
-	start();
+	if(questions){
+		start();
+	}
 }
 
 //Перемешивает вопросы, задаёт высоту
@@ -194,7 +196,7 @@ window.onresize = function() {
 		let image = document.getElementById('image');
 		if (image != null) {
 			if (image.clientWidth == 0){
-				setTimeout(window.onresize, 1000)
+				setTimeout(window.onresize, 10)
 			}
 			image.style.width = 'auto';
 			image.style.height = '60%';
@@ -438,5 +440,5 @@ function showResults() {
 
 	}
 	let result = 100 * results / questions.length;
-	document.getElementById('main').innerHTML = result + '%';
+	send_result(result);
 }

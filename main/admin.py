@@ -40,4 +40,3 @@ class LevelThemeAdmin(admin.ModelAdmin):
 class LevelAdmin(admin.ModelAdmin):
 	search_fields = ('name', )
 	list_display = ('name', 'theme')
-

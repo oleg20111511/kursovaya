@@ -72,4 +72,4 @@ class Level(models.Model):
 		return f'/levels/{self.name}'
 	def __str__(self):
 		return self.name
-	pass
+

@@ -82,7 +82,7 @@ window.onresize = function() {
 		let image = document.getElementById('image');
 		if (image != null) {
 			if (image.clientWidth == 0){
-				setTimeout(window.onresize, 1000)
+				setTimeout(window.onresize, 10)
 			}
 			image.style.width = 'auto';
 			image.style.height = '60%';

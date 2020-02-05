@@ -1,0 +1,31 @@
+{% extends 'level_base.html' %}
+
+{% block question %}
+	{% if not user.is_authenticated %}
+		Чтобы проходить уровни необходимо <a href="/accounts/login">войти</a>/<a href="/profiles/register">зарегистрироваться</a>
+	{% else %}
+		<p class="congratulations">Уровень <span class="levelname">{{level.name}}</span> пройден!</p>
+		<div class="stars_container">
+			{% load static %}
+			{% for i in range %}
+				<img class="star_{{i}} stars" src="{% if i < stars %}{% static 'img/star.png' %}{% else %}{% static 'img/white-star.png' %}{% endif %}">
+			{% endfor %}
+		</div>
+	{% endif%}
+{% endblock %}
+
+{% block script %}
+window.onload = function(){
+	document.getElementById('main').style.height = window.innerHeight + 'px';
+	if (window.innerHeight > window.innerWidth) {
+		document.getElementById('main').style.width = '90%';
+	} else {
+		document.getElementById('main').style.width = '50%';
+	}
+}
+window.onresize = window.onload;
+{% endblock %}
+
+{% block answers %}
+	<div style="width:100%;height:100%;text-align:center;"><a href="/"><p style="margin-top:40%;">На главную</p></a></div>
+{% endblock %}
