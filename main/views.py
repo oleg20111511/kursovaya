@@ -36,7 +36,7 @@ class LevelThemeThemeDetailView(generic.DetailView):
 
 class LevelThemeDetailView(generic.DetailView):
 	model = LevelTheme
-	template_name = 'list_template.html'
+	template_name = 'level_list.html'
 	def get_context_data(self, **kwargs):
 		context = super(LevelThemeDetailView, self).get_context_data(**kwargs)
 		object_list = self.object.level_set.all()

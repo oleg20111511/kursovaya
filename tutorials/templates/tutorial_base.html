@@ -14,9 +14,11 @@
 
 <body class="body">
 	<div class="main" id="main">
+		{% block main %}
 		<div class="theme" id="theme">{% block theme %} {% endblock %}</div>
 		<div class="question" id="question">{% block question %} {% endblock %}</div>
 		<div class="answers" id="answers">{% block answers %} {% endblock %}</div>
+		{% endblock %}
 	</div>
 </body>
 

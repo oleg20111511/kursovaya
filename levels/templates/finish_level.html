@@ -1,6 +1,6 @@
 {% extends 'level_base.html' %}
 
-{% block question %}
+{% block finish %}
 	{% if not user.is_authenticated %}
 		Чтобы проходить уровни необходимо <a href="/accounts/login">войти</a>/<a href="/profiles/register">зарегистрироваться</a>
 	{% else %}

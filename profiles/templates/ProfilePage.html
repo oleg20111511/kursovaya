@@ -1,0 +1,7 @@
+{% extends 'main_base.html' %}
+
+{% block content %}
+	<h3>{{user.username}}</h3>
+	<h3>Уровень знаний: {{result}}%</h3>
+	<h3>Пройдено уровней: {{total}}/{{levels}}</h3>
+{% endblock %}

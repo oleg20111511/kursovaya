@@ -5,7 +5,7 @@ from django.urls import reverse
 
 class Tutorial(models.Model):
 	name = models.CharField(max_length=100, verbose_name='Название обучалки', primary_key=True)
-	theme = models.CharField(max_length=50, verbose_name='Тема обучалки', help_text='Отображается вверху страницы')
+	theme = models.CharField(max_length=21, verbose_name='Тема обучалки', help_text='Отображается вверху страницы')
 	def get_rules_amount(self):
 		return self.rule_set.all().count()
 	get_rules_amount.short_description = 'Количество правил'

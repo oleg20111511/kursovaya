@@ -1,0 +1,47 @@
+{% extends 'main_base.html' %}
+
+{% block content %}
+<div class="content" id="content">
+	{% if object_list %}
+		{% if user.is_authenticated %}
+				
+			{% load define_counter %}
+			{% load get_score %}
+			{% get_range as range %}
+			{% define 0 as counter %}
+
+			{% for object in object_list %}
+			{% increase counter as counter %}
+			{% decideCB counter as cb_required %}
+			
+			{% load static %}
+				<div onclick="window.location='{{object.get_absolute_url}}'" class="levelBlock FL{% if cb_required %} CB{% endif %}" style="background-image: url(/{{ MEDIA_URL }}{{object.background.url}});">
+					{% is_passed object user as passed %}
+					{% if passed %}
+						{% get_stars object user as stars %}
+						{% for i in range %}
+							<img class="stars" src="{% if i < stars %}{% static 'img/star.png' %}{% else %}{% static 'img/white-star.png' %}{% endif %}">
+						{% endfor %}
+					{% endif %}
+				</div>
+			{% endfor %}
+			<p class="filler"></p>
+		{% else %}
+			{% load define_counter %}
+			{% define 0 as counter %}
+
+			{% for object in object_list %}
+			{% increase counter as counter %}
+			{% decideCB counter as cb_required %}
+			
+			{% load static %}
+			<div onclick="window.location='{{object.get_absolute_url}}'" class="levelBlock FL{% if cb_required %} CB{% endif %}" style="background-image: url(/{{ MEDIA_URL }}{{object.background.url}});"></div>
+			{% endfor %}
+			<p class="filler"></p>
+		{% endif %}
+	{% else %}
+	<h1>Пока что здесь пусто :(</h1>
+	{% endif %}
+</div>
+<script src="{% static 'js/ResizeBlocks.js' %}"></script>
+{% endblock %}

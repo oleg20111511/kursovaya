@@ -5,6 +5,7 @@ from django.urls import reverse
 
 class Level(models.Model):
 	name = models.CharField(max_length=100, verbose_name='Название уровня', primary_key=True)
+	theme = models.CharField(max_length=21, verbose_name='Тема уровня', help_text='Отображается вверху страницы')
 	def get_absolute_url(self):
 		return reverse('level', args=[str(self.name)])
 	def get_questions_amount(self):

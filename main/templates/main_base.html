@@ -23,7 +23,7 @@
 			</li>
 			<li class="FL"><a href="{% url 'level-theme-theme-list' %}">Игры</a></li>
 			{% if user.is_authenticated %}
-			<li class="FR"><a href="/accounts/logout">{{user.get_username}}, мы внутри</a></li>
+			<li class="FR"><a href="/profiles/account/{{user.id}}">{{user.get_username}}</a></li>
 			{% else %}
 				<li class="FR"><a href="/accounts/login">Вход</a>
 				<ul class="drop menu">

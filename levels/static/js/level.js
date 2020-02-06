@@ -288,6 +288,7 @@ function changeQuestion() {
 	}
 	started = true;
 	window.onresize();
+	setTimeout(window.onresize, 1000)
 }
 
 //Выделение кнопки
