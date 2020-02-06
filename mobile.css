@@ -81,7 +81,7 @@ body{
   margin-top: 29px;
   list-style: none;
   float: left;
-  min-height: calc(100vh - 50px);
+  min-height: 100%;
   z-index: -99999px;
   background-color: rgba(23, 23, 50, 1);
   
