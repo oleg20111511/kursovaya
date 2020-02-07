@@ -5,31 +5,53 @@
 	<meta charset="utf-8">
 	<title>Курсовая</title>
 	{% load static %}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% if request.user_agent.is_mobile %}
+	<link href="{% static 'css/mobile.css' %}" rel="stylesheet" type="text/css">
+	{% else %}
 	<link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
+	{% endif %}
 </head>
 
 <body class="body">
 	<nav class='navigation'>
 		<ul class="menuList">
-			<li class="FL firstLi"><a href="{% url 'index' %}">Главная страница</a></li>
-			<li class="FL"><a href="{% url 'tutorial-theme-list' %}">Обучение</a>
-				<ul class="drop menu dropMenuSmall">
-					{% load get_tutorials %}
-					{% get_tutorial_list as tutorial_themes %}
-					{% for theme in tutorial_themes %}
-					<li><a href="{{ theme.get_absolute_url }}">-{% replacesymbols theme.name %}</a></li>
-					{% endfor %}
-				</ul>
-			</li>
-			<li class="FL"><a href="{% url 'level-theme-theme-list' %}">Игры</a></li>
-			{% if user.is_authenticated %}
-			<li class="FR"><a href="/profiles/account/{{user.id}}">{{user.get_username}}</a></li>
-			{% else %}
-				<li class="FR"><a href="/accounts/login">Вход</a>
-				<ul class="drop menu">
-					<li><a href="/profiles/register">Регистрация</a></li>
-				</ul>
+			{% if request.user_agent.is_mobile %}
+				<li class="DL">
+					<div class="burger"></div>
+					<ul class="drop menu">
+						{% if user.is_authenticated %}
+						<li><a href="/profiles/account/{{user.id}}">Акаунт</a></li>
+						{% endif %}
+						<li><a href="{% url 'tutorial-theme-list' %}">Обучение</a></li>
+						<li><a href="{% url 'level-theme-theme-list' %}">Игры</a></li>
+					</ul>
 				</li>
+				<li class="FC"><a href="{% url 'index' %}" class="FA">Курсач</a></li>
+				{% if not user.is_authenticated %}
+				<li class="FR"><a href="/accounts/login" class="FA">Вход</a></li>
+				{% endif %}
+			{% else %}
+				<li class="FL firstLi"><a href="{% url 'index' %}">Главная страница</a></li>
+				<li class="FL"><a href="{% url 'tutorial-theme-list' %}">Обучение</a>
+					<ul class="drop menu dropMenuSmall">
+						{% load get_tutorials %}
+						{% get_tutorial_list as tutorial_themes %}
+						{% for theme in tutorial_themes %}
+						<li><a href="{{ theme.get_absolute_url }}">-{% replacesymbols theme.name %}</a></li>
+						{% endfor %}
+					</ul>
+				</li>
+				<li class="FL"><a href="{% url 'level-theme-theme-list' %}">Игры</a></li>
+				{% if user.is_authenticated %}
+				<li class="FR"><a href="/profiles/account/{{user.id}}">{{user.get_username}}</a></li>
+				{% else %}
+					<li class="FR"><a href="/accounts/login">Вход</a>
+					<ul class="drop menu">
+						<li><a href="/profiles/register">Регистрация</a></li>
+					</ul>
+					</li>
+				{% endif %}
 			{% endif %}
 		</ul>
 	</nav>

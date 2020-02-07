@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'uazcwal8n!-$!bdx!ql5u+l06)1(!v(-(ui@$5)fss07=yjgz_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 	'main.apps.MainConfig',
 	'levels.apps.LevelsConfig',
 	'profiles.apps.ProfilesConfig',
-	'tutorials.apps.TutorialsConfig'
+	'tutorials.apps.TutorialsConfig',
+	'django_user_agents'
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,7 @@ MIDDLEWARE = [
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
 ROOT_URLCONF = 'kursovaya.urls'
