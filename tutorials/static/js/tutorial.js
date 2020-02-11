@@ -119,6 +119,7 @@ function changeTutorial() {
 
 	started = true;
 	window.onresize();
+	setTimeout(window.onresize, 100)
 }
 
 // button.onclick

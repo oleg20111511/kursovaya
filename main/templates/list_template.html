@@ -14,7 +14,7 @@
 		{% load static %}
 		<div onclick="window.location='{{object.get_absolute_url}}'" class="levelBlock FL{% if cb_required %} CB{% endif %}" style="background-image: url(/{{ MEDIA_URL }}{{object.background.url}});"></div>
 		{% endfor %}
-		<p class="filler"></p>
+		<p class="filler CB"></p>
 	{% else %}
 	<h1>Пока что здесь пусто :(</h1>
 	{% endif %}
