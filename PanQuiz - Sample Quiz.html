@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0 -->
+<html class="sc-play-page-admin sc-theme-user-md" style="font-size: 22px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>PanQuiz - Sample Quiz</title>
+    <meta name="description" content="PanQuiz! allows you to create online quizzes, tests and assessments">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://app.panquiz.com/assets/img/fav/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://app.panquiz.com/assets/img/fav/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://app.panquiz.com/assets/img/fav/favicon-16x16.png">
+
+	<link rel="manifest" href="https://app.panquiz.com/manifest.json">
+	<meta name="theme-color" content="#1565c0">
+
+
+			<script>
+		//I need to declare it here (and not in main.js) because I need to call it here
+		GetCookie = function (name) {
+			//If we change here, change also in main.js
+			var nameEQ = name + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+			}
+			return null;
+		}
+		RedirectToLogin = function () {
+			if (GetCookie("pq-token"))
+				return;
+			else {
+				var urlToRedirect = "/login.html"
+				if (window.location.pathname.toLowerCase() != "/" && window.location.pathname.toLowerCase() != "/index.html") {
+					urlToRedirect = urlToRedirect + "?returnUrl=" + encodeURIComponent(window.location.pathname + window.location.search);
+				}
+				window.location.href = urlToRedirect;
+			}
+		}
+		RedirectToLogin();
+	</script>
+		
+		<!-- reset -->
+	<link rel="stylesheet" href="./PanQuiz - Sample Quiz_files/reset.min.css">	
+	
+	<!-- polyfills -->
+	<script src="./PanQuiz - Sample Quiz_files/polyfills.min.js.Без названия"></script>
+
+	<!-- PanQuiz settings -->
+	<script src="./PanQuiz - Sample Quiz_files/settings.min.js.Без названия"></script>
+
+	<!-- UIKit js -->
+    <script src="./PanQuiz - Sample Quiz_files/uikit.min.js.Без названия"></script>
+
+		<!-- oAuth -->
+	<script>
+		var providerCookie = GetCookie("pq-oAuthProvider");
+		if (providerCookie)
+		{
+			var head = document.getElementsByTagName('head')[0];
+			var js = document.createElement("script");
+			js.type = "text/javascript";
+			js.src = "/assets/js/oauth_" + providerCookie + ".min.js";
+			head.appendChild(js);
+		}
+	</script>
+			<!-- MathJax -->
+	<script>
+		MathJax = {
+			options: {
+				renderActions: {
+					addMenu: [0, '', '']
+				},
+			},
+			chtml: {
+				scale: 0.5
+			}
+		};
+	</script>
+	<script type="text/javascript" id="MathJax-script" async="" src="./PanQuiz - Sample Quiz_files/tex-mml-chtml.js.Без названия"></script>
+
+	
+<link rel="stylesheet" as="style" href="./PanQuiz - Sample Quiz_files/materialdesignicons.min.css"><link rel="stylesheet" as="style" href="./PanQuiz - Sample Quiz_files/uikit.min.css"><link rel="stylesheet" as="style" href="./PanQuiz - Sample Quiz_files/mdi_fonts.css"><link rel="stylesheet" as="style" href="./PanQuiz - Sample Quiz_files/roboto_base64.css"><link rel="stylesheet" as="style" href="./PanQuiz - Sample Quiz_files/sourceCodePro_base64.css"><link rel="stylesheet" href="./PanQuiz - Sample Quiz_files/main.min.css"><link rel="stylesheet" href="./PanQuiz - Sample Quiz_files/theme_user_md.min.css"><link rel="stylesheet" href="./PanQuiz - Sample Quiz_files/odometer-theme-default.css"><link rel="stylesheet" href="./PanQuiz - Sample Quiz_files/odometer-theme-default-2s.css"><link rel="stylesheet" href="./PanQuiz - Sample Quiz_files/panquiz_play_admin.min.css"><script src="./PanQuiz - Sample Quiz_files/vendor.min.js.Без названия" async=""></script><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style><script src="./PanQuiz - Sample Quiz_files/scutum_common.min.js.Без названия" async=""></script><script src="./PanQuiz - Sample Quiz_files/screenfull.js.Без названия" async=""></script><script src="./PanQuiz - Sample Quiz_files/jquery.i18n.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/jquery.i18n.messagestore.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/jquery.i18n.language.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/jquery.i18n.parser.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/jquery.i18n.emitter.bidi.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/jquery.i18n.emitter.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/jquery.i18n.fallbacks.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/initials.min.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/main.min.js.Без названия" async=""></script><script src="./PanQuiz - Sample Quiz_files/panquiz_play_admin.min.js.Без названия" async=""></script><script src="./PanQuiz - Sample Quiz_files/animation.min.js.Без названия" async=""></script><script src="./PanQuiz - Sample Quiz_files/panquiz_login.min.js.Без названия" async=""></script><script src="./PanQuiz - Sample Quiz_files/handlebars.min.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/signalr.min.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/howler.min.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/circular-countdown.min.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/odometer.min.js.Без названия"></script><link rel="stylesheet" href="./PanQuiz - Sample Quiz_files/perfect-scrollbar.css"><script src="./PanQuiz - Sample Quiz_files/perfect-scrollbar.min.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/lottie.min.js.Без названия"></script><script src="./PanQuiz - Sample Quiz_files/list.min.js.Без названия"></script></head>
+<body style="background: linear-gradient(-45deg, rgb(124, 187, 0), rgb(0, 161, 241), rgb(246, 83, 20), rgb(255, 187, 0)) 96.5097% 50% / 400% 400% repeat scroll padding-box border-box rgba(0, 0, 0, 0); animation: 15s ease 0s infinite normal none running gradientBG;">
+	<script>
+		// prevent FOUC
+		var html = document.getElementsByTagName('html')[0];
+		html.style.backgroundColor = '#f5f5f5';
+		document.body.style.visibility = 'hidden';
+		document.body.style.overflow = 'hidden';
+		document.body.style.apacity = '0';
+		document.body.style.maxHeight = "100%";
+	</script>
+
+		
+	<div id="sc-page-wrapper" class="pq-height-full">
+	<div id="sc-page-content" class="pq-height-full">
+
+		<div id="pq-play-error-message" class="uk-alert-icon uk-alert-danger uk-margin-top uk-hidden uk-alert" data-uk-alert="">
+			<div class="uk-flex uk-flex-middle">
+				<i class="mdi mdi-emoticon-sad-outline sc-icon-32 uk-margin-right"></i>
+				<div class="uk-alert-content">
+					<h5 data-i18n="[html]pq-cannot-play-game-title">An error occurred</h5>
+					<p data-i18n="[html]pq-cannot-play-game-message">Unable to play this panquiz now. Please close this window and retry.</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="pq-step-0" class="uk-position-center uk-hidden"> <!-- style="display: flex;align-items: center;justify-content: center;" -->
+			<div class="button-jittery uk-animation-fade uk-hidden">
+				<button id="pq-start-button">START</button>
+			</div>
+			<div id="heart" class=""></div>
+			<div id="heart-message" class="pq-white-text uk-hidden" data-i18n="[html]pq-long-waiting">I'm taking a little more than usual.<br>Please wait for a few more moments...</div>
+		</div>
+
+		<div id="pq-step-1" class="sc-padding uk-hidden" style="display: flex;flex-flow: column;height: 100%;">
+			<div class="uk-card uk-card-body uk-margin-medium">
+				<ul id="pq-instructions" data-uk-accordion="" class="uk-accordion">
+					<li class="uk-open">
+						<h1 id="pq-ready-to-play" class="uk-accordion-title uk-text-xxlarge pq-font-weight pq-font-family" data-i18n="[html]pq-ready-to-play">Ready to play?</h1>
+						<div class="uk-accordion-content uk-text-xxlarge pq-no-margin"><span data-i18n="[html]pq-join-game">Join at <b>play.panquiz.com</b> or download the <b>PanQuiz!</b> app</span><br><b><span data-i18n="pq-pin2">PIN:</span>&nbsp;&nbsp;<span class="uk-text-xxxxxxxlarge" id="pq-pin">66 91 36</span></b>	
+						</div>
+						<div class="sc-fab-card-wrapper uk-position-bottom-right" id="pq-action-buttons">
+							<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="sc-js-mute-toggle" class="sc-fab sc-fab-small uk-hidden" data-uk-tooltip="title: Mute; delay: 500" title="" aria-expanded="false"><i class="mdi mdi-volume-mute"></i></a>
+							<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="sc-js-fullscreen-toggle" class="sc-fab sc-fab-small" data-uk-tooltip="title: Full Screen; delay: 500" title="" aria-expanded="false"><i class="mdi mdi-fullscreen sc-js-el-hide"></i><i class="mdi mdi-fullscreen-exit sc-js-el-show"></i></a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<div id="pq-title" class="uk-width-1-1 pq-play-admin-title uk-text-truncate uk-text-xxxlarge sc-padding-bottom" style="line-height: 1.1">Sample Quiz</div>
+			</div>
+			<div id="pq-player-list-container" class="sc-js-scrollable ps uk-position-relative" style="padding-bottom: 10px !important;">
+					<div id="pq-player-list" data-uk-grid="" class="uk-grid uk-grid-stack">
+						<!-- Here will appear the template-->
+					
+	<div id="pq-user_EOFSx9nUn4sQzdWMI2Zi9Q" class="sc-el-clickable uk-animation-scale-up uk-first-column" data-user-name="oleg" data-connection-id="EOFSx9nUn4sQzdWMI2Zi9Q">
+		<div class="uk-card sc-widget uk-flex uk-card-hover ">
+				<div class="md-bg-red-600 uk-flex-middle uk-flex uk-flex-center pq-padding-borders-lr">
+					<i class="mdi mdi-account-outline md-color-white sc-icon-24"></i>
+				</div>
+				<div class="uk-flex-1 pq-padding-borders-lr">				
+					<div class="uk-card-body pq-no-padding-lr pq-padding-borders-tb" style="min-width: 40px;">
+						<p class="pq-player-card">oleg</p>
+					</div>
+				</div>			
+		</div>
+	</div>
+</div>
+			<div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+			
+			<div class="ribbon ribbon-bottom-left"><div style="background-color: #191970" id="pq-player-count">1 player</div></div>
+			<div class="pq-wait-for-players pq-no-margin uk-alert" style="padding: 3px 56px 3px 16px" data-uk-alert="">
+				<a class="uk-alert-close uk-icon uk-close" data-uk-close=""><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></a>
+				<div class="waiting-container">
+				  <span class="waiting-txt anim-text-flow" data-i18n="pq-waiting-for-players"><span>W</span><span>a</span><span>i</span><span>t</span><span>i</span><span>n</span><span>g</span><span> </span><span>f</span><span>o</span><span>r</span><span> </span><span>p</span><span>l</span><span>a</span><span>y</span><span>e</span><span>r</span><span>s</span><span>.</span><span>.</span><span>.</span></span>
+				</div>
+			</div>
+		</div>
+
+		<div id="pq-step-2" class="pq-height-full">
+			
+
+			<div id="pq-step-2b" class="question-splash-active pq-height-full pq-background-color-light-grey">
+				<div id="question-splash" class="uk-hidden">
+					<div class="ribbon ribbon-top-left"><div><span style="font-size: 26px" id="pq-question-splash-question-current">1</span> <span data-i18n="pq-of">of</span> <span style="font-size: 26px" id="pq-question-splash-question-total">2</span></div></div>
+					<div id="pq-question-splash-text" class="question font-md">What is the common term for describing the visual  perception based on a refraction of light rays for the closest heat-emitting celestial body that the planet we are currently located is spinning?</div>
+					<div class="progress-bar">
+						<span style="width: 100%;"></span>
+					</div>
+				</div>
+				<div id="question" class="pq-background-color-light-grey">
+					<div id="top">
+						<div class="logo">
+							<img src="./PanQuiz - Sample Quiz_files/logo_alt.png" alt="">
+						</div>
+						<h1 id="pq-question-text" class="pq-font-family pq-no-margin font-md">What is the common term for describing the visual  perception based on a refraction of light rays for the closest heat-emitting celestial body that the planet we are currently located is spinning?</h1>
+						<div class="question-number">
+							<div data-i18n="pq-question">Question</div>
+							<div class="uk-margin-small-top">
+								<span id="pq-question-number">1</span>
+								<span id="pq-question-max" class="pq-superscript" style="vertical-align: top; margin-left: 0px">/2</span>
+							</div>
+						</div>
+					</div>
+					<div id="middle" style="height: 50%; flex: unset;">
+						<div class="col1">
+							<div id="pq-score-spinner" class="uk-hidden"><img src="./PanQuiz - Sample Quiz_files/spinner.gif"></div>
+							<div class="bonus-image uk-height-1-1 uk-hidden"><img src="./PanQuiz - Sample Quiz_files/bonus.png" class="uk-animation-scale-up" alt="" style="width:200px;height:200px;"></div>
+							<div class="js-timer" data-interval-id="72" style="position: relative; box-sizing: content-box;"><div class="coutndown-wrapper" style="width: 200px; height: 200px; position: absolute; clip: rect(0px, 100px, 200px, 0px);"><div class="coutndown-circle coutndown-circle-left" style="width: 180px; height: 180px; border: 10px solid rgb(40, 53, 147); border-radius: 200px; box-sizing: content-box; background-color: rgb(233, 233, 233); position: absolute; clip: rect(0px, 100px, 200px, 0px); transform: rotate(38.718deg);"></div><div class="coutndown-circle coutndown-circle-right" style="width: 180px; height: 180px; border: 10px solid rgb(40, 53, 147); border-radius: 200px; box-sizing: content-box; background-color: rgb(233, 233, 233); position: absolute; clip: rect(0px, 100px, 200px, 0px); transform: rotate(38.718deg);"></div></div><div class="coutndown-wrapper-time" style="position: absolute; height: 200px; width: 200px; line-height: 200px; text-align: center; font-size: 160px; font-family: Boogaloo; color: rgb(40, 53, 147);">8</div></div>
+						</div>
+						<div class="col2">
+							<div class="image">
+								<img id="pq-question-image" src="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0" alt="" class="uk-hidden">
+								<div id="pq-question-animation" style="display: flex; flex: 1;">
+									<div id="pq-question-animation-canvas" class="uk-width-expand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"><defs><clippath id="__lottie_element_2"><rect width="1200" height="675" x="0" y="0"></rect></clippath><clippath id="__lottie_element_22"><path d="M0,0 L500,0 L500,500 L0,500z"></path></clippath></defs><g clip-path="url(#__lottie_element_2)"><g transform="matrix(1,0,0,1,600,337.5)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,-2,-1.5)"><path fill="rgb(147,236,255)" fill-opacity="1" d=" M622,-352 C622,-352 622,352 622,352 C622,352 -622,352 -622,352 C-622,352 -622,-352 -622,-352 C-622,-352 622,-352 622,-352z"></path><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(0,0,0)" stroke-opacity="1" stroke-width="1" d=" M622,-352 C622,-352 622,352 622,352 C622,352 -622,352 -622,352 C-622,352 -622,-352 -622,-352 C-622,-352 622,-352 622,-352z"></path></g></g><g clip-path="url(#__lottie_element_22)" transform="matrix(1,0,0,1,350,87.5)" opacity="1" style="display: block;"></g><g transform="matrix(1.6799999475479126,0,0,1.6799999475479126,265.30206298828125,25.19097900390625)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,104.23100280761719,261.2179870605469)"><path fill="rgb(217,167,110)" fill-opacity="1" d=" M38.35499954223633,-20.250999450683594 C33.53499984741211,-13.220999717712402 27.104999542236328,-3.010999917984009 21.434999465942383,8.680000305175781 C21.155000686645508,9.260000228881836 20.964000701904297,9.630000114440918 20.833999633789062,9.84000015258789 C20.78499984741211,9.98900032043457 20.714000701904297,10.159000396728516 20.645000457763672,10.350000381469727 C20.645000457763672,10.359000205993652 21.684999465942383,17.43899917602539 21.684999465942383,17.43899917602539 C15.737000465393066,27.9950008392334 15.37600040435791,46.2400016784668 13.097999572753906,50.14799880981445 C11.640000343322754,52.6510009765625 9.668000221252441,45.132999420166016 9.017999649047852,47.981998443603516 C-1.3619999885559082,49.28200149536133 -10.114999771118164,40.77000045776367 -10.484999656677246,40.52000045776367 C-11.104999542236328,40.10900115966797 -31.405000686645508,33.16999816894531 -38.35499954223633,30.809999465942383 C-38.35499954223633,30.809999465942383 -36.404998779296875,17.909000396728516 -36.404998779296875,17.909000396728516 C-36.404998779296875,17.909000396728516 -36.24599838256836,17.48900032043457 -36.24599838256836,17.48900032043457 C-28.514999389648438,-1.840999960899353 -10.1850004196167,-38.04100036621094 22.44499969482422,-50.59000015258789 C24.464000701904297,-51.37099838256836 26.54400062561035,-52.06100082397461 28.684999465942383,-52.650001525878906 C28.684999465942383,-52.650001525878906 38.35499954223633,-20.250999450683594 38.35499954223633,-20.250999450683594z"></path></g><g opacity="1" transform="matrix(1,0,0,1,199.8730010986328,157.17100524902344)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M66.16899871826172,156.92100524902344 C66.16899871826172,156.92100524902344 -66.16999816894531,156.92100524902344 -66.16999816894531,156.92100524902344 C-75.875,156.92100524902344 -83.81600189208984,148.97999572753906 -83.81600189208984,139.27499389648438 C-83.81600189208984,139.27499389648438 -83.81400299072266,-139.27699279785156 -83.81400299072266,-139.27699279785156 C-83.81400299072266,-148.9810028076172 -75.875,-156.92100524902344 -66.16999816894531,-156.92100524902344 C-66.16999816894531,-156.92100524902344 66.16899871826172,-156.92100524902344 66.16899871826172,-156.92100524902344 C75.8759994506836,-156.92100524902344 83.81600189208984,-148.97999572753906 83.81600189208984,-139.27499389648438 C83.81600189208984,-139.27499389648438 83.81600189208984,139.27499389648438 83.81600189208984,139.27499389648438 C83.81600189208984,148.97999572753906 75.8759994506836,156.92100524902344 66.16899871826172,156.92100524902344z"></path></g><g opacity="1" transform="matrix(1,0,0,1,199.87399291992188,149.9709930419922)"><path fill="rgb(8,161,193)" fill-opacity="0.04" d=" M76.52200317382812,131.08999633789062 C76.52200317382812,131.08999633789062 -76.52200317382812,131.08999633789062 -76.52200317382812,131.08999633789062 C-76.52200317382812,131.08999633789062 -76.52200317382812,-131.08999633789062 -76.52200317382812,-131.08999633789062 C-76.52200317382812,-131.08999633789062 76.52200317382812,-131.08999633789062 76.52200317382812,-131.08999633789062 C76.52200317382812,-131.08999633789062 76.52200317382812,131.08999633789062 76.52200317382812,131.08999633789062z"></path></g><g opacity="1" transform="matrix(1,0,0,1,239.18899536132812,27.704999923706055)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M-4.355000019073486,3.0260000228881836 C-4.355000019073486,3.0260000228881836 -3.3239998817443848,3.0260000228881836 -3.3239998817443848,3.0260000228881836 C-3.3239998817443848,3.0260000228881836 -3.3239998817443848,1.4019999504089355 -3.3239998817443848,1.4019999504089355 C-3.3239998817443848,1.4019999504089355 -4.355000019073486,1.4019999504089355 -4.355000019073486,1.4019999504089355 C-4.355000019073486,1.4019999504089355 -4.355000019073486,3.0260000228881836 -4.355000019073486,3.0260000228881836z M-2.437000036239624,3.0260000228881836 C-2.437000036239624,3.0260000228881836 -1.4040000438690186,3.0260000228881836 -1.4040000438690186,3.0260000228881836 C-1.4040000438690186,3.0260000228881836 -1.4040000438690186,0.22100000083446503 -1.4040000438690186,0.22100000083446503 C-1.4040000438690186,0.22100000083446503 -2.437000036239624,0.22100000083446503 -2.437000036239624,0.22100000083446503 C-2.437000036239624,0.22100000083446503 -2.437000036239624,3.0260000228881836 -2.437000036239624,3.0260000228881836z M-0.515999972820282,3.0260000228881836 C-0.515999972820282,3.0260000228881836 0.515999972820282,3.0260000228881836 0.515999972820282,3.0260000228881836 C0.515999972820282,3.0260000228881836 0.515999972820282,-0.9599999785423279 0.515999972820282,-0.9599999785423279 C0.515999972820282,-0.9599999785423279 -0.515999972820282,-0.9599999785423279 -0.515999972820282,-0.9599999785423279 C-0.515999972820282,-0.9599999785423279 -0.515999972820282,3.0260000228881836 -0.515999972820282,3.0260000228881836z M1.4040000438690186,3.0260000228881836 C1.4040000438690186,3.0260000228881836 2.437000036239624,3.0260000228881836 2.437000036239624,3.0260000228881836 C2.437000036239624,3.0260000228881836 2.437000036239624,-2.1410000324249268 2.437000036239624,-2.1410000324249268 C2.437000036239624,-2.1410000324249268 1.4040000438690186,-2.1410000324249268 1.4040000438690186,-2.1410000324249268 C1.4040000438690186,-2.1410000324249268 1.4040000438690186,3.0260000228881836 1.4040000438690186,3.0260000228881836z M3.322000026702881,-3.1740000247955322 M3.322000026702881,3.1740000247955322 C3.322000026702881,3.1740000247955322 4.355000019073486,3.1740000247955322 4.355000019073486,3.1740000247955322 C4.355000019073486,3.1740000247955322 4.355000019073486,-3.1740000247955322 4.355000019073486,-3.1740000247955322 C4.355000019073486,-3.1740000247955322 3.322000026702881,-3.1740000247955322 3.322000026702881,-3.1740000247955322 C3.322000026702881,-3.1740000247955322 3.322000026702881,3.1740000247955322 3.322000026702881,3.1740000247955322z"></path></g><g opacity="1" transform="matrix(1,0,0,1,226.20199584960938,27.610000610351562)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M4.056000232696533,-3.1760001182556152 C4.056000232696533,-3.1760001182556152 3.319999933242798,-2.6419999599456787 3.319999933242798,-2.6419999599456787 C3.319999933242798,-2.6419999599456787 3.319999933242798,3.1760001182556152 3.319999933242798,3.1760001182556152 C3.319999933242798,3.1760001182556152 4.355000019073486,3.1760001182556152 4.355000019073486,3.1760001182556152 C4.355000019073486,3.1760001182556152 4.355000019073486,-3.1760001182556152 4.355000019073486,-3.1760001182556152 C4.355000019073486,-3.1760001182556152 4.056000232696533,-3.1760001182556152 4.056000232696533,-3.1760001182556152z M1.406000018119812,-1.2400000095367432 C1.406000018119812,-1.2400000095367432 1.406000018119812,3.0209999084472656 1.406000018119812,3.0209999084472656 C1.406000018119812,3.0209999084472656 2.440999984741211,3.0209999084472656 2.440999984741211,3.0209999084472656 C2.440999984741211,3.0209999084472656 2.440999984741211,-1.996000051498413 2.440999984741211,-1.996000051498413 C2.440999984741211,-1.996000051498413 1.406000018119812,-1.2400000095367432 1.406000018119812,-1.2400000095367432z M-0.5180000066757202,0.16200000047683716 C-0.5180000066757202,0.16200000047683716 -0.5180000066757202,3.0209999084472656 -0.5180000066757202,3.0209999084472656 C-0.5180000066757202,3.0209999084472656 0.5149999856948853,3.0209999084472656 0.5149999856948853,3.0209999084472656 C0.5149999856948853,3.0209999084472656 0.5149999856948853,-0.5950000286102295 0.5149999856948853,-0.5950000286102295 C0.5149999856948853,-0.5950000286102295 -0.5180000066757202,0.16200000047683716 -0.5180000066757202,0.16200000047683716z M-2.431999921798706,1.5640000104904175 C-2.431999921798706,1.5640000104904175 -2.431999921798706,3.0209999084472656 -2.431999921798706,3.0209999084472656 C-2.431999921798706,3.0209999084472656 -1.3969999551773071,3.0209999084472656 -1.3969999551773071,3.0209999084472656 C-1.3969999551773071,3.0209999084472656 -1.3969999551773071,0.8069999814033508 -1.3969999551773071,0.8069999814033508 C-1.3969999551773071,0.8069999814033508 -2.431999921798706,1.5640000104904175 -2.431999921798706,1.5640000104904175z M-4.355000019073486,2.9649999141693115 C-4.355000019073486,2.9649999141693115 -4.355000019073486,3.0209999084472656 -4.355000019073486,3.0209999084472656 C-4.355000019073486,3.0209999084472656 -3.321000099182129,3.0209999084472656 -3.321000099182129,3.0209999084472656 C-3.321000099182129,3.0209999084472656 -3.321000099182129,2.2090001106262207 -3.321000099182129,2.2090001106262207 C-3.321000099182129,2.2090001106262207 -4.355000019073486,2.9649999141693115 -4.355000019073486,2.9649999141693115z"></path></g><g opacity="1" transform="matrix(1,0,0,1,226.2310028076172,27.54199981689453)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M4.519999980926514,3.3369998931884766 C4.519999980926514,3.3369998931884766 -4.519999980926514,3.3369998931884766 -4.519999980926514,3.3369998931884766 C-4.519999980926514,3.3369998931884766 -4.519999980926514,-3.3369998931884766 -4.519999980926514,-3.3369998931884766 C-4.519999980926514,-3.3369998931884766 4.519999980926514,-3.3369998931884766 4.519999980926514,-3.3369998931884766 C4.519999980926514,-3.3369998931884766 4.519999980926514,3.3369998931884766 4.519999980926514,3.3369998931884766z M-4.242000102996826,3.059999942779541 C-4.242000102996826,3.059999942779541 4.239999771118164,3.059999942779541 4.239999771118164,3.059999942779541 C4.239999771118164,3.059999942779541 4.239999771118164,-3.059000015258789 4.239999771118164,-3.059000015258789 C4.239999771118164,-3.059000015258789 -4.242000102996826,-3.059000015258789 -4.242000102996826,-3.059000015258789 C-4.242000102996826,-3.059000015258789 -4.242000102996826,3.059999942779541 -4.242000102996826,3.059999942779541z"></path></g><g opacity="1" transform="matrix(1,0,0,1,226.2310028076172,27.542999267578125)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M4.460999965667725,-3.0880000591278076 C4.460999965667725,-3.0880000591278076 4.326000213623047,-2.9860000610351562 4.326000213623047,-2.9860000610351562 C4.326000213623047,-2.9860000610351562 3.2909998893737793,-2.2300000190734863 3.2909998893737793,-2.2300000190734863 C3.2909998893737793,-2.2300000190734863 2.4119999408721924,-1.5959999561309814 2.4119999408721924,-1.5959999561309814 C2.4119999408721924,-1.5959999561309814 1.3769999742507935,-0.8389999866485596 1.3769999742507935,-0.8389999866485596 C1.3769999742507935,-0.8389999866485596 0.4860000014305115,-0.18299999833106995 0.4860000014305115,-0.18299999833106995 C0.4860000014305115,-0.18299999833106995 -0.546999990940094,0.5740000009536743 -0.546999990940094,0.5740000009536743 C-0.546999990940094,0.5740000009536743 -1.4259999990463257,1.2079999446868896 -1.4259999990463257,1.2079999446868896 C-1.4259999990463257,1.2079999446868896 -2.4609999656677246,1.9639999866485596 -2.4609999656677246,1.9639999866485596 C-2.4609999656677246,1.9639999866485596 -3.3499999046325684,2.619999885559082 -3.3499999046325684,2.619999885559082 C-3.3499999046325684,2.619999885559082 -3.996000051498413,3.0880000591278076 -3.996000051498413,3.0880000591278076 C-3.996000051498413,3.0880000591278076 -4.296999931335449,3.309000015258789 -4.296999931335449,3.309000015258789 C-4.296999931335449,3.309000015258789 -4.460999965667725,3.0880000591278076 -4.460999965667725,3.0880000591278076 C-4.460999965667725,3.0880000591278076 -4.385000228881836,3.0320000648498535 -4.385000228881836,3.0320000648498535 C-4.385000228881836,3.0320000648498535 -3.3499999046325684,2.2750000953674316 -3.3499999046325684,2.2750000953674316 C-3.3499999046325684,2.2750000953674316 -2.4609999656677246,1.63100004196167 -2.4609999656677246,1.63100004196167 C-2.4609999656677246,1.63100004196167 -1.4259999990463257,0.8740000128746033 -1.4259999990463257,0.8740000128746033 C-1.4259999990463257,0.8740000128746033 -0.546999990940094,0.2290000021457672 -0.546999990940094,0.2290000021457672 C-0.546999990940094,0.2290000021457672 0.4860000014305115,-0.527999997138977 0.4860000014305115,-0.527999997138977 C0.4860000014305115,-0.527999997138977 1.3769999742507935,-1.1740000247955322 1.3769999742507935,-1.1740000247955322 C1.3769999742507935,-1.1740000247955322 2.4119999408721924,-1.9290000200271606 2.4119999408721924,-1.9290000200271606 C2.4119999408721924,-1.9290000200271606 3.2909998893737793,-2.575000047683716 3.2909998893737793,-2.575000047683716 C3.2909998893737793,-2.575000047683716 4.0269999504089355,-3.1089999675750732 4.0269999504089355,-3.1089999675750732 C4.0269999504089355,-3.1089999675750732 4.302999973297119,-3.309000015258789 4.302999973297119,-3.309000015258789 C4.302999973297119,-3.309000015258789 4.460999965667725,-3.0880000591278076 4.460999965667725,-3.0880000591278076z"></path></g><g opacity="1" transform="matrix(1,0,0,1,132.61599731445312,27.860000610351562)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M0.4950000047683716,-3.0190000534057617 C0.4950000047683716,-3.0190000534057617 0.4950000047683716,-2.752000093460083 0.4950000047683716,-2.752000093460083 C0.4950000047683716,-2.752000093460083 1.4730000495910645,-2.752000093460083 1.4730000495910645,-2.752000093460083 C1.4730000495910645,-2.752000093460083 1.4730000495910645,2.753000020980835 1.4730000495910645,2.753000020980835 C1.4730000495910645,2.753000020980835 -1.4839999675750732,2.753000020980835 -1.4839999675750732,2.753000020980835 C-1.4839999675750732,2.753000020980835 -1.4839999675750732,-2.752000093460083 -1.4839999675750732,-2.752000093460083 C-1.4839999675750732,-2.752000093460083 -0.5070000290870667,-2.752000093460083 -0.5070000290870667,-2.752000093460083 C-0.5070000290870667,-2.752000093460083 -0.5070000290870667,-3.0190000534057617 -0.5070000290870667,-3.0190000534057617 C-0.5070000290870667,-3.0190000534057617 -1.7640000581741333,-3.0190000534057617 -1.7640000581741333,-3.0190000534057617 C-1.7640000581741333,-3.0190000534057617 -1.7640000581741333,3.0190000534057617 -1.7640000581741333,3.0190000534057617 C-1.7640000581741333,3.0190000534057617 1.7640000581741333,3.0190000534057617 1.7640000581741333,3.0190000534057617 C1.7640000581741333,3.0190000534057617 1.7640000581741333,-3.0190000534057617 1.7640000581741333,-3.0190000534057617 C1.7640000581741333,-3.0190000534057617 0.4950000047683716,-3.0190000534057617 0.4950000047683716,-3.0190000534057617z"></path></g><g opacity="1" transform="matrix(1,0,0,1,132.61099243164062,24.697999954223633)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M-0.7789999842643738,-0.4099999964237213 C-0.7789999842643738,-0.4099999964237213 -0.7789999842643738,0.4099999964237213 -0.7789999842643738,0.4099999964237213 C-0.7789999842643738,0.4099999964237213 -0.5019999742507935,0.4099999964237213 -0.5019999742507935,0.4099999964237213 C-0.5019999742507935,0.4099999964237213 -0.5019999742507935,-0.14399999380111694 -0.5019999742507935,-0.14399999380111694 C-0.5019999742507935,-0.14399999380111694 0.49900001287460327,-0.14399999380111694 0.49900001287460327,-0.14399999380111694 C0.49900001287460327,-0.14399999380111694 0.49900001287460327,0.4099999964237213 0.49900001287460327,0.4099999964237213 C0.49900001287460327,0.4099999964237213 0.777999997138977,0.4099999964237213 0.777999997138977,0.4099999964237213 C0.777999997138977,0.4099999964237213 0.777999997138977,-0.4099999964237213 0.777999997138977,-0.4099999964237213 C0.777999997138977,-0.4099999964237213 -0.7789999842643738,-0.4099999964237213 -0.7789999842643738,-0.4099999964237213z"></path></g><g opacity="1" transform="matrix(1,0,0,1,132.61500549316406,28.570999145507812)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M1.2599999904632568,1.7960000038146973 C1.2599999904632568,1.7960000038146973 -1.2599999904632568,1.7960000038146973 -1.2599999904632568,1.7960000038146973 C-1.2599999904632568,1.7960000038146973 -1.2599999904632568,-1.7960000038146973 -1.2599999904632568,-1.7960000038146973 C-1.2599999904632568,-1.7960000038146973 1.2599999904632568,-1.7960000038146973 1.2599999904632568,-1.7960000038146973 C1.2599999904632568,-1.7960000038146973 1.2599999904632568,1.7960000038146973 1.2599999904632568,1.7960000038146973z"></path></g><g opacity="1" transform="matrix(1,0,0,1,284.0060119628906,63.90599822998047)"><path fill="rgb(198,199,200)" fill-opacity="1" d=" M-0.7940000295639038,11.680999755859375 C-0.7940000295639038,11.680999755859375 -1.4830000400543213,11.680999755859375 -1.4830000400543213,11.680999755859375 C-1.4830000400543213,11.680999755859375 -1.4830000400543213,-11.680999755859375 -1.4830000400543213,-11.680999755859375 C-1.4830000400543213,-11.680999755859375 -0.7940000295639038,-11.680999755859375 -0.7940000295639038,-11.680999755859375 C0.46399998664855957,-11.680999755859375 1.4830000400543213,-10.661999702453613 1.4830000400543213,-9.404000282287598 C1.4830000400543213,-9.404000282287598 1.4830000400543213,9.404999732971191 1.4830000400543213,9.404999732971191 C1.4830000400543213,10.661999702453613 0.46399998664855957,11.680999755859375 -0.7940000295639038,11.680999755859375z"></path></g><g opacity="1" transform="matrix(1,0,0,1,116.38800048828125,76.09700012207031)"><path fill="rgb(198,199,200)" fill-opacity="1" d=" M2.7820000648498535,24.61400032043457 C2.7820000648498535,24.61400032043457 1.4900000095367432,24.61400032043457 1.4900000095367432,24.61400032043457 C-0.8690000176429749,24.61400032043457 -2.7820000648498535,22.70199966430664 -2.7820000648498535,20.343000411987305 C-2.7820000648498535,20.343000411987305 -2.7820000648498535,-20.343000411987305 -2.7820000648498535,-20.343000411987305 C-2.7820000648498535,-22.701000213623047 -0.8700000047683716,-24.61400032043457 1.4880000352859497,-24.61400032043457 C1.4880000352859497,-24.61400032043457 2.7820000648498535,-24.61400032043457 2.7820000648498535,-24.61400032043457 C2.7820000648498535,-24.61400032043457 2.7820000648498535,24.61400032043457 2.7820000648498535,24.61400032043457z"></path></g><g opacity="1" transform="matrix(1,0,0,1,135.7530059814453,300.17498779296875)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M11.08899974822998,5.931000232696533 C9.682000160217285,8.883000373840332 8.418999671936035,11.522000312805176 7.281000137329102,13.92199993133545 C7.281000137329102,13.92199993133545 -2.055000066757202,13.92199993133545 -2.055000066757202,13.92199993133545 C-6.176000118255615,13.92199993133545 -9.972999572753906,12.493000030517578 -12.977999687194824,10.093000411987305 C-6.53000020980835,1.434000015258789 -2.6600000858306885,-13.92199993133545 -2.6600000858306885,-13.92199993133545 C-2.6600000858306885,-13.92199993133545 7.511000156402588,-12.27299976348877 7.511000156402588,-12.27299976348877 C7.427999973297119,-11.689000129699707 12.977999687194824,-5.77400016784668 11.08899974822998,5.931000232696533z"></path></g><g opacity="1" transform="matrix(1,0,0,1,224.83799743652344,9.776000022888184)"><path fill="rgb(163,163,164)" fill-opacity="1" d=" M1.5190000534057617,-0.0010000000474974513 C1.5190000534057617,0.8370000123977661 0.8370000123977661,1.5180000066757202 0.0010000000474974513,1.5180000066757202 C-0.8379999995231628,1.5180000066757202 -1.5190000534057617,0.8370000123977661 -1.5190000534057617,-0.0010000000474974513 C-1.5190000534057617,-0.8389999866485596 -0.8379999995231628,-1.5180000066757202 0.0010000000474974513,-1.5180000066757202 C0.8370000123977661,-1.5180000066757202 1.5190000534057617,-0.8389999866485596 1.5190000534057617,-0.0010000000474974513z"></path></g><g opacity="1" transform="matrix(1,0,0,1,230.61399841308594,9.776000022888184)"><path fill="rgb(163,163,164)" fill-opacity="1" d=" M1.5180000066757202,-0.0010000000474974513 C1.5180000066757202,0.8370000123977661 0.8370000123977661,1.5180000066757202 -0.0010000000474974513,1.5180000066757202 C-0.8399999737739563,1.5180000066757202 -1.5180000066757202,0.8370000123977661 -1.5180000066757202,-0.0010000000474974513 C-1.5180000066757202,-0.8389999866485596 -0.8399999737739563,-1.5180000066757202 -0.0010000000474974513,-1.5180000066757202 C0.8370000123977661,-1.5180000066757202 1.5180000066757202,-0.8389999866485596 1.5180000066757202,-0.0010000000474974513z"></path></g><g opacity="1" transform="matrix(1,0,0,1,170.43099975585938,9.774999618530273)"><path fill="rgb(163,163,164)" fill-opacity="1" d=" M2.815999984741211,0 C2.815999984741211,1.555999994277954 1.5549999475479126,2.815999984741211 0.0010000000474974513,2.815999984741211 C-1.5549999475479126,2.815999984741211 -2.816999912261963,1.555999994277954 -2.816999912261963,0 C-2.816999912261963,-1.5549999475479126 -1.5549999475479126,-2.815999984741211 0.0010000000474974513,-2.815999984741211 C1.5549999475479126,-2.815999984741211 2.815999984741211,-1.5549999475479126 2.815999984741211,0z"></path></g><g opacity="1" transform="matrix(1,0,0,1,198.7429962158203,9.774999618530273)"><path fill="rgb(163,163,164)" fill-opacity="1" d=" M17.547000885009766,1.656999945640564 C17.547000885009766,1.656999945640564 -17.54800033569336,1.656999945640564 -17.54800033569336,1.656999945640564 C-18.250999450683594,1.656999945640564 -18.81999969482422,1.0880000591278076 -18.81999969482422,0.38600000739097595 C-18.81999969482422,0.38600000739097595 -18.81999969482422,-0.38499999046325684 -18.81999969482422,-0.38499999046325684 C-18.81999969482422,-1.0880000591278076 -18.250999450683594,-1.656999945640564 -17.54800033569336,-1.656999945640564 C-17.54800033569336,-1.656999945640564 17.547000885009766,-1.656999945640564 17.547000885009766,-1.656999945640564 C18.25,-1.656999945640564 18.81999969482422,-1.0880000591278076 18.81999969482422,-0.38499999046325684 C18.81999969482422,-0.38499999046325684 18.81999969482422,0.38600000739097595 18.81999969482422,0.38600000739097595 C18.81999969482422,1.0880000591278076 18.25,1.656999945640564 17.547000885009766,1.656999945640564z"></path></g><g opacity="1" transform="matrix(1,0,0,1,199.8719940185547,297.4630126953125)"><path fill="rgb(163,163,164)" fill-opacity="1" d=" M12.911999702453613,7.0920000076293945 C12.911999702453613,7.0920000076293945 -12.91100025177002,7.0920000076293945 -12.91100025177002,7.0920000076293945 C-15.918000221252441,7.0920000076293945 -18.35700035095215,4.6539998054504395 -18.35700035095215,1.6469999551773071 C-18.35700035095215,1.6469999551773071 -18.35700035095215,-1.6469999551773071 -18.35700035095215,-1.6469999551773071 C-18.35700035095215,-4.65500020980835 -15.918000221252441,-7.0920000076293945 -12.91100025177002,-7.0920000076293945 C-12.91100025177002,-7.0920000076293945 12.911999702453613,-7.0920000076293945 12.911999702453613,-7.0920000076293945 C15.920000076293945,-7.0920000076293945 18.35700035095215,-4.65500020980835 18.35700035095215,-1.6469999551773071 C18.35700035095215,-1.6469999551773071 18.35700035095215,1.6469999551773071 18.35700035095215,1.6469999551773071 C18.35700035095215,4.6539998054504395 15.920000076293945,7.0920000076293945 12.911999702453613,7.0920000076293945z"></path></g><g opacity="1" transform="matrix(1,0,0,1,199.84300231933594,297.4639892578125)"><path fill="rgb(198,199,200)" fill-opacity="1" d=" M12.354999542236328,6.164999961853027 C12.354999542236328,6.164999961853027 -12.354999542236328,6.164999961853027 -12.354999542236328,6.164999961853027 C-14.968000411987305,6.164999961853027 -17.086999893188477,4.046000003814697 -17.086999893188477,1.4320000410079956 C-17.086999893188477,1.4320000410079956 -17.086999893188477,-1.4320000410079956 -17.086999893188477,-1.4320000410079956 C-17.086999893188477,-4.046000003814697 -14.968000411987305,-6.164999961853027 -12.354999542236328,-6.164999961853027 C-12.354999542236328,-6.164999961853027 12.354999542236328,-6.164999961853027 12.354999542236328,-6.164999961853027 C14.968000411987305,-6.164999961853027 17.086999893188477,-4.046000003814697 17.086999893188477,-1.4320000410079956 C17.086999893188477,-1.4320000410079956 17.086999893188477,1.430999994277954 17.086999893188477,1.430999994277954 C17.086999893188477,4.045000076293945 14.968000411987305,6.164999961853027 12.354999542236328,6.164999961853027z"></path></g><g opacity="1" transform="matrix(1,0,0,1,200.0709991455078,150.22000122070312)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M76.57599639892578,-131.33900451660156 C76.57599639892578,-131.33900451660156 -76.57599639892578,131.33900451660156 -76.57599639892578,131.33900451660156 C-76.57599639892578,131.33900451660156 -76.57599639892578,-130.572998046875 -76.57599639892578,-130.572998046875 C-76.57599639892578,-130.572998046875 76.57599639892578,-131.33900451660156 76.57599639892578,-131.33900451660156z"></path></g><g opacity="1" transform="matrix(1,0,0,1,61.41600036621094,401.6409912109375)"><path fill="rgb(246,194,132)" fill-opacity="1" d=" M48.5,-37.80500030517578 C48.5,-37.80500030517578 34.457000732421875,22.416000366210938 34.457000732421875,22.416000366210938 C34.457000732421875,22.416000366210938 22.867000579833984,63.26499938964844 22.867000579833984,63.26499938964844 C22.867000579833984,63.26499938964844 -48.5,63.26499938964844 -48.5,63.26499938964844 C-48.5,63.26499938964844 -6.708000183105469,-58.11000061035156 -6.708000183105469,-58.11000061035156 C-6.708000183105469,-58.11000061035156 -1.902999997138977,-63.01499938964844 -1.902999997138977,-63.01499938964844 C-1.902999997138977,-63.01499938964844 48.5,-37.80500030517578 48.5,-37.80500030517578z"></path></g><g opacity="1" transform="matrix(1,0,0,1,101.01300048828125,289.052001953125)"><path fill="rgb(246,194,132)" fill-opacity="1" d=" M44.5,17.385000228881836 C43.150001525878906,20.21500015258789 41.939998626708984,22.743999481201172 40.849998474121094,25.045000076293945 C34.869998931884766,37.67499923706055 32.400001525878906,43.314998626708984 27.790000915527344,53.654998779296875 C16.8700008392334,68.34500122070312 8.319999694824219,75.1050033569336 8.319999694824219,75.1050033569336 C8.319999694824219,75.1050033569336 -46.31100082397461,54.974998474121094 -46.31100082397461,54.974998474121094 C-46.31100082397461,54.974998474121094 -38.47100067138672,2.9749999046325684 -38.47100067138672,2.9749999046325684 C-38.47100067138672,2.9749999046325684 -36.52000045776367,-9.925999641418457 -36.52000045776367,-9.925999641418457 C-36.52000045776367,-9.925999641418457 -36.361000061035156,-10.345000267028809 -36.361000061035156,-10.345000267028809 C-29.229999542236328,-28.176000595092773 -13.079999923706055,-60.35499954223633 14.989999771118164,-75.1050033569336 C14.989999771118164,-75.1050033569336 14.989999771118164,-46.904998779296875 14.989999771118164,-46.904998779296875 C12.119999885559082,-43.665000915527344 8.09000015258789,-37.5 3.989000082015991,-33.67900085449219 C1.9199999570846558,-29.638999938964844 5.068999767303467,-8.0649995803833 5.068999767303467,-8.0649995803833 C5.488999843597412,-4.40500020980835 6.559999942779541,-1.565000057220459 6.848999977111816,1.024999976158142 C7.968999862670898,11.0649995803833 13.020999908447266,21.2549991607666 13.899999618530273,26.854999542236328 C16.690000534057617,26.5049991607666 19.219999313354492,24.354999542236328 21.43000030517578,21.374000549316406 C27.610000610351562,13.074000358581543 31.31999969482422,-1.6449999809265137 31.31999969482422,-1.6449999809265137 C31.31999969482422,-1.6449999809265137 41.06999969482422,-0.06499999761581421 41.06999969482422,-0.06499999761581421 C40.9900016784668,0.49399998784065247 46.31100082397461,6.164000034332275 44.5,17.385000228881836z"></path></g><g opacity="1" transform="matrix(1,0,0,1,199.8699951171875,26.687000274658203)"><path fill="rgb(6,142,204)" fill-opacity="0.1" d=" M-76.51799774169922,-7.807000160217285 C-76.51799774169922,-7.807000160217285 76.51799774169922,-7.807000160217285 76.51799774169922,-7.807000160217285 C76.51799774169922,-7.807000160217285 76.51799774169922,7.807000160217285 76.51799774169922,7.807000160217285 C76.51799774169922,7.807000160217285 -76.51799774169922,7.807000160217285 -76.51799774169922,7.807000160217285 C-76.51799774169922,7.807000160217285 -76.51799774169922,-7.807000160217285 -76.51799774169922,-7.807000160217285z"></path></g><g opacity="1" transform="matrix(1,0,0,1,126.45800018310547,309.7170104980469)"><path fill="rgb(246,194,132)" fill-opacity="1" d=" M32.64500045776367,-45.020999908447266 C32.64500045776367,-45.020999908447266 43.84600067138672,-38.375999450683594 37.9379997253418,-29.516000747680664 C32.03200149536133,-20.655000686645508 -20.08099937438965,50.060001373291016 -20.08099937438965,50.060001373291016 C-20.08099937438965,50.060001373291016 -43.84600067138672,33.952999114990234 -43.84600067138672,33.952999114990234 C-43.84600067138672,33.952999114990234 16.826000213623047,-43.1609992980957 16.826000213623047,-43.1609992980957 C16.826000213623047,-43.1609992980957 24.101999282836914,-50.060001373291016 32.64500045776367,-45.020999908447266z"></path></g><g opacity="1" transform="matrix(1,0,0,1,151.0570068359375,277.5369873046875)"><path fill="rgb(247,218,176)" fill-opacity="1" d=" M-2.375999927520752,-10.758000373840332 C0.7699999809265137,-11.987000465393066 5.724999904632568,-9.187000274658203 6.836999893188477,-8.517999649047852 C6.836999893188477,-8.517999649047852 6.839000225067139,-8.517999649047852 6.839000225067139,-8.517999649047852 C6.839000225067139,-8.517999649047852 6.876999855041504,-8.494999885559082 6.938000202178955,-8.454999923706055 C7.019999980926514,-8.404999732971191 7.065999984741211,-8.37399959564209 7.065999984741211,-8.37399959564209 C7.065999984741211,-8.37399959564209 7.065000057220459,-8.37399959564209 7.065000057220459,-8.37399959564209 C8.156999588012695,-7.672999858856201 12.845000267028809,-4.46999979019165 12.99899959564209,-1.187000036239624 C12.99899959564209,-1.187000036239624 8.802000045776367,11.987000465393066 -3.440999984741211,7.22599983215332 C-12.99899959564209,-1.5850000381469727 -2.375999927520752,-10.758000373840332 -2.375999927520752,-10.758000373840332z"></path></g><g opacity="1" transform="matrix(1,0,0,1,62.94300079345703,416.322998046875)"><path fill="rgb(223,241,248)" fill-opacity="1" d=" M35.361000061035156,4.25 C35.361000061035156,4.25 33.645999908447266,12.416999816894531 33.645999908447266,12.416999816894531 C33.645999908447266,12.416999816894531 -35.361000061035156,-4.416999816894531 -35.361000061035156,-4.416999816894531 C-35.361000061035156,-4.416999816894531 -31.861000061035156,-12.416999816894531 -31.861000061035156,-12.416999816894531 C-31.861000061035156,-12.416999816894531 35.361000061035156,4.25 35.361000061035156,4.25z"></path></g><g opacity="1" transform="matrix(1,0,0,1,49.66699981689453,436.343994140625)"><path fill="rgb(8,161,193)" fill-opacity="1" d=" M49.41699981689453,-11.607000350952148 C49.41699981689453,-11.607000350952148 45.301998138427734,28.562999725341797 45.301998138427734,28.562999725341797 C45.301998138427734,28.562999725341797 -49.41699981689453,28.562999725341797 -49.41699981689453,28.562999725341797 C-49.41699981689453,28.562999725341797 -23.70800018310547,-28.312000274658203 -23.70800018310547,-28.312000274658203 C-23.70800018310547,-28.312000274658203 -20.104000091552734,-27.28700065612793 -20.104000091552734,-27.28700065612793 C-20.104000091552734,-27.28700065612793 46.415000915527344,-12.286999702453613 46.415000915527344,-12.286999702453613 C46.415000915527344,-12.286999702453613 49.41699981689453,-11.607000350952148 49.41699981689453,-11.607000350952148z"></path></g></g><g transform="matrix(0.550000011920929,0,0,0.550000011920929,748.0550537109375,304.46844482421875)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,-151,-144.5)"><path fill="rgb(0,138,166)" fill-opacity="1" d=" M4.724442306824634e-15,-77.15599822998047 C4.724442306824634e-15,-77.15599822998047 77.15599822998047,0 77.15599822998047,0 C77.15599822998047,0 4.724442306824634e-15,77.15599822998047 4.724442306824634e-15,77.15599822998047 C4.724442306824634e-15,77.15599822998047 -77.15599822998047,9.448884613649268e-15 -77.15599822998047,9.448884613649268e-15 C-77.15599822998047,9.448884613649268e-15 4.724442306824634e-15,-77.15599822998047 4.724442306824634e-15,-77.15599822998047z"></path></g></g><g transform="matrix(0.33234018087387085,0.33234018087387085,-0.33234018087387085,0.33234018087387085,550.1644897460938,457.7222595214844)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,-151,-144.5)"><path fill="rgb(0,138,166)" fill-opacity="1" d=" M4.724442306824634e-15,-77.15599822998047 C4.724442306824634e-15,-77.15599822998047 12.069857597351074,-76.20608520507812 12.069857597351074,-76.20608520507812 C12.069857597351074,-76.20608520507812 23.84251594543457,-73.37971496582031 23.84251594543457,-73.37971496582031 C23.84251594543457,-73.37971496582031 35.02809143066406,-68.74649810791016 35.02809143066406,-68.74649810791016 C35.02809143066406,-68.74649810791016 45.351158142089844,-62.42051696777344 45.351158142089844,-62.42051696777344 C45.351158142089844,-62.42051696777344 54.55752944946289,-54.55752944946289 54.55752944946289,-54.55752944946289 C54.55752944946289,-54.55752944946289 62.42051696777344,-45.351158142089844 62.42051696777344,-45.351158142089844 C62.42051696777344,-45.351158142089844 68.74649810791016,-35.02809143066406 68.74649810791016,-35.02809143066406 C68.74649810791016,-35.02809143066406 73.37971496582031,-23.84251594543457 73.37971496582031,-23.84251594543457 C73.37971496582031,-23.84251594543457 76.20608520507812,-12.069857597351074 76.20608520507812,-12.069857597351074 C76.20608520507812,-12.069857597351074 77.15599822998047,0 77.15599822998047,0 C77.15599822998047,0 76.20608520507812,12.069857597351074 76.20608520507812,12.069857597351074 C76.20608520507812,12.069857597351074 73.37971496582031,23.84251594543457 73.37971496582031,23.84251594543457 C73.37971496582031,23.84251594543457 68.74649810791016,35.02809143066406 68.74649810791016,35.02809143066406 C68.74649810791016,35.02809143066406 62.42051696777344,45.351158142089844 62.42051696777344,45.351158142089844 C62.42051696777344,45.351158142089844 54.55752944946289,54.55752944946289 54.55752944946289,54.55752944946289 C54.55752944946289,54.55752944946289 45.351158142089844,62.42051696777344 45.351158142089844,62.42051696777344 C45.351158142089844,62.42051696777344 35.02809143066406,68.74649810791016 35.02809143066406,68.74649810791016 C35.02809143066406,68.74649810791016 23.84251594543457,73.37971496582031 23.84251594543457,73.37971496582031 C23.84251594543457,73.37971496582031 12.069857597351074,76.20608520507812 12.069857597351074,76.20608520507812 C12.069857597351074,76.20608520507812 4.724442306824634e-15,77.15599822998047 4.724442306824634e-15,77.15599822998047 C4.724442306824634e-15,77.15599822998047 -12.069857597351074,76.20608520507812 -12.069857597351074,76.20608520507812 C-12.069857597351074,76.20608520507812 -23.84251594543457,73.37971496582031 -23.84251594543457,73.37971496582031 C-23.84251594543457,73.37971496582031 -35.02809143066406,68.74649810791016 -35.02809143066406,68.74649810791016 C-35.02809143066406,68.74649810791016 -45.351158142089844,62.42051696777344 -45.351158142089844,62.42051696777344 C-45.351158142089844,62.42051696777344 -54.55752944946289,54.55752944946289 -54.55752944946289,54.55752944946289 C-54.55752944946289,54.55752944946289 -62.42051696777344,45.351158142089844 -62.42051696777344,45.351158142089844 C-62.42051696777344,45.351158142089844 -68.74649810791016,35.02809143066406 -68.74649810791016,35.02809143066406 C-68.74649810791016,35.02809143066406 -73.37971496582031,23.84251594543457 -73.37971496582031,23.84251594543457 C-73.37971496582031,23.84251594543457 -76.20608520507812,12.069857597351074 -76.20608520507812,12.069857597351074 C-76.20608520507812,12.069857597351074 -77.15599822998047,9.448884613649268e-15 -77.15599822998047,9.448884613649268e-15 C-77.15599822998047,9.448884613649268e-15 -76.20608520507812,-12.069857597351074 -76.20608520507812,-12.069857597351074 C-76.20608520507812,-12.069857597351074 -73.37971496582031,-23.84251594543457 -73.37971496582031,-23.84251594543457 C-73.37971496582031,-23.84251594543457 -68.74649810791016,-35.02809143066406 -68.74649810791016,-35.02809143066406 C-68.74649810791016,-35.02809143066406 -62.42051696777344,-45.351158142089844 -62.42051696777344,-45.351158142089844 C-62.42051696777344,-45.351158142089844 -54.55752944946289,-54.55752944946289 -54.55752944946289,-54.55752944946289 C-54.55752944946289,-54.55752944946289 -45.351158142089844,-62.42051696777344 -45.351158142089844,-62.42051696777344 C-45.351158142089844,-62.42051696777344 -35.02809143066406,-68.74649810791016 -35.02809143066406,-68.74649810791016 C-35.02809143066406,-68.74649810791016 -23.84251594543457,-73.37971496582031 -23.84251594543457,-73.37971496582031 C-23.84251594543457,-73.37971496582031 -12.069857597351074,-76.20608520507812 -12.069857597351074,-76.20608520507812 C-12.069857597351074,-76.20608520507812 4.724442306824634e-15,-77.15599822998047 4.724442306824634e-15,-77.15599822998047z"></path></g></g><g transform="matrix(0.43840619921684265,0.43840619921684265,-0.43840619921684265,0.43840619921684265,667.8504028320312,489.0491638183594)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,-151,-144.5)"><path fill="rgb(0,138,166)" fill-opacity="1" d=" M4.724442306824634e-15,-77.15599822998047 C4.724442306824634e-15,-77.15599822998047 77.15599822998047,0 77.15599822998047,0 C77.15599822998047,0 4.724442306824634e-15,77.15599822998047 4.724442306824634e-15,77.15599822998047 C4.724442306824634e-15,77.15599822998047 -77.15599822998047,9.448884613649268e-15 -77.15599822998047,9.448884613649268e-15 C-77.15599822998047,9.448884613649268e-15 4.724442306824634e-15,-77.15599822998047 4.724442306824634e-15,-77.15599822998047z"></path></g></g><g transform="matrix(0.5158900022506714,0,0,0.44999998807907104,778.0869140625,188.6750030517578)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,-446,98.5)"><path fill="rgb(0,138,166)" fill-opacity="1" d=" M6.153788805976111e-15,-100.4990005493164 C6.153788805976111e-15,-100.4990005493164 87.0346908569336,50.2495002746582 87.0346908569336,50.2495002746582 C87.0346908569336,50.2495002746582 -87.0346908569336,50.2495002746582 -87.0346908569336,50.2495002746582 C-87.0346908569336,50.2495002746582 6.153788805976111e-15,-100.4990005493164 6.153788805976111e-15,-100.4990005493164z"></path></g></g><g transform="matrix(1.6799999475479126,0,0,1.6799999475479126,647.3177490234375,204.20553588867188)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,40.308998107910156,136.97799682617188)"><path fill="rgb(217,167,110)" fill-opacity="1" d=" M-10.286999702453613,-42.875 C-10.286999702453613,-42.875 -15.906000137329102,-35.479000091552734 -15.906000137329102,-35.479000091552734 C-15.906000137329102,-35.479000091552734 -23.27199935913086,-28.615999221801758 -14.87399959564209,-11.020999908447266 C-5.501999855041504,8.619000434875488 -1.6799999475479126,16.70800018310547 -1.6799999475479126,16.70800018310547 C-1.6799999475479126,16.70800018310547 15.387999534606934,36.19300079345703 17.476999282836914,39.534000396728516 C19.565000534057617,42.874000549316406 23.270999908447266,33.95800018310547 23.270999908447266,33.95800018310547 C23.270999908447266,33.95800018310547 -10.286999702453613,-42.875 -10.286999702453613,-42.875z"></path></g><g opacity="1" transform="matrix(1,0,0,1,63.819000244140625,80.41899871826172)"><path fill="rgb(246,194,132)" fill-opacity="1" d=" M-8.954999923706055,-21.597999572753906 C-8.954999923706055,-21.597999572753906 -18.319000244140625,-18.20800018310547 -16.65399932861328,-7.23199987411499 C-14.821000099182129,4.8470001220703125 -10.965999603271484,24.517000198364258 -10.965999603271484,24.517000198364258 C-10.965999603271484,24.517000198364258 18.319000244140625,15.322999954223633 18.319000244140625,15.322999954223633 C18.319000244140625,15.322999954223633 4.877999782562256,-15.659000396728516 4.877999782562256,-15.659000396728516 C4.877999782562256,-15.659000396728516 -0.335999995470047,-24.517000198364258 -8.954999923706055,-21.597999572753906z"></path></g><g opacity="1" transform="matrix(1,0,0,1,88.0999984741211,88.48799896240234)"><path fill="rgb(246,194,132)" fill-opacity="1" d=" M-6.327000141143799,-22.511999130249023 C-6.327000141143799,-22.511999130249023 -17.909000396728516,-19.562000274658203 -15.147000312805176,-8.809000015258789 C-12.387999534606934,1.944000005722046 -7.211999893188477,24.733999252319336 -7.211999893188477,24.733999252319336 C-7.211999893188477,24.733999252319336 17.909000396728516,16.4689998626709 17.909000396728516,16.4689998626709 C17.909000396728516,16.4689998626709 6.986999988555908,-15.486000061035156 6.986999988555908,-15.486000061035156 C6.986999988555908,-15.486000061035156 2.499000072479248,-24.733999252319336 -6.327000141143799,-22.511999130249023z"></path></g><g opacity="1" transform="matrix(1,0,0,1,28.760000228881836,54.50699996948242)"><path fill="rgb(246,194,132)" fill-opacity="1" d=" M-17.54599952697754,-51.90399932861328 C-17.54599952697754,-51.90399932861328 -28.51099967956543,-48.784000396728516 -25.594999313354492,-38.604000091552734 C-22.679000854492188,-28.423999786376953 4.7789998054504395,54.25699996948242 4.7789998054504395,54.25699996948242 C4.7789998054504395,54.25699996948242 28.51099967956543,45.7130012512207 28.51099967956543,45.7130012512207 C28.51099967956543,45.7130012512207 -4.664999961853027,-45.55699920654297 -4.664999961853027,-45.55699920654297 C-4.664999961853027,-45.55699920654297 -9.189000129699707,-54.25699996948242 -17.54599952697754,-51.90399932861328z"></path></g><g opacity="1" transform="matrix(1,0,0,1,67.12300109863281,96.3270034790039)"><path fill="rgb(246,194,132)" fill-opacity="1" d=" M-3.4600000381469727,-22.840999603271484 C-3.4600000381469727,-22.840999603271484 -15.333999633789062,-21.4689998626709 -14.039999961853027,-10.444000244140625 C-12.744000434875488,0.5839999914169312 -10.666999816894531,23.858999252319336 -10.666999816894531,23.858999252319336 C-10.666999816894531,23.858999252319336 15.333000183105469,19.038000106811523 15.333000183105469,19.038000106811523 C15.333000183105469,19.038000106811523 8.793000221252441,-14.095000267028809 8.793000221252441,-14.095000267028809 C8.793000221252441,-14.095000267028809 5.585000038146973,-23.858999252319336 -3.4600000381469727,-22.840999603271484z"></path></g><g opacity="1" transform="matrix(1,0,0,1,90.86599731445312,98.26699829101562)"><path fill="rgb(246,194,132)" fill-opacity="1" d=" M-3.299999952316284,-21.78700065612793 C-3.299999952316284,-21.78700065612793 -14.626999855041504,-20.47800064086914 -13.390999794006348,-9.961000442504883 C-12.156000137329102,0.5569999814033508 -10.175000190734863,22.759000778198242 -10.175000190734863,22.759000778198242 C-10.175000190734863,22.759000778198242 14.628000259399414,18.159000396728516 14.628000259399414,18.159000396728516 C14.628000259399414,18.159000396728516 8.387999534606934,-13.444999694824219 8.387999534606934,-13.444999694824219 C8.387999534606934,-13.444999694824219 5.327000141143799,-22.759000778198242 -3.299999952316284,-21.78700065612793z"></path></g><g opacity="1" transform="matrix(1,0,0,1,109.84100341796875,101.03800201416016)"><path fill="rgb(246,194,132)" fill-opacity="1" d=" M9.833999633789062,-6.47599983215332 C9.833999633789062,-6.47599983215332 7.826000213623047,-18.06100082397461 7.826000213623047,-18.06100082397461 C7.826000213623047,-18.06100082397461 3.316999912261963,-26.139999389648438 -4.300000190734863,-24.3700008392334 C-4.300000190734863,-24.3700008392334 -14.298999786376953,-22.017000198364258 -12.095999717712402,-12.734999656677246 C-11.38599967956543,-9.74899959564209 -12.005000114440918,-4.329999923706055 -11.104000091552734,-0.19599999487400055 C-9.991999626159668,9.788999557495117 -6.88700008392334,26.139999389648438 -6.88700008392334,26.139999389648438 C-6.88700008392334,26.139999389648438 14.298999786376953,22.211000442504883 14.298999786376953,22.211000442504883 C14.298999786376953,22.211000442504883 9.833999633789062,-6.47599983215332 9.833999633789062,-6.47599983215332z"></path></g><g opacity="1" transform="matrix(1,0,0,1,78.75900268554688,140.33200073242188)"><path fill="rgb(246,194,132)" fill-opacity="1" d=" M42.755001068115234,-34.60100173950195 C42.755001068115234,-34.60100173950195 51.59000015258789,24.31100082397461 51.59000015258789,24.31100082397461 C51.59000015258789,24.31100082397461 -8.39900016784668,51.08100128173828 -8.39900016784668,51.08100128173828 C-8.39900016784668,51.08100128173828 -21.155000686645508,43.11600112915039 -29.729999542236328,16.041000366210938 C-38.30099868774414,-11.036999702453613 -51.59000015258789,-50.7869987487793 -51.59000015258789,-50.7869987487793 C-51.59000015258789,-50.7869987487793 -12.545000076293945,-51.08100128173828 -12.545000076293945,-51.08100128173828 C-12.545000076293945,-51.08100128173828 18.965999603271484,-44.25600051879883 18.965999603271484,-44.25600051879883 C18.965999603271484,-44.25600051879883 42.755001068115234,-34.60100173950195 42.755001068115234,-34.60100173950195z"></path></g><g opacity="1" transform="matrix(1,0,0,1,119.5989990234375,205.14500427246094)"><path fill="rgb(246,194,132)" fill-opacity="1" d=" M49.23500061035156,36.78799819946289 C49.23500061035156,36.78799819946289 -27.003000259399414,43.59199905395508 -27.003000259399414,43.59199905395508 C-27.003000259399414,43.59199905395508 -49.23500061035156,-13.729999542236328 -49.23500061035156,-13.729999542236328 C-49.23500061035156,-13.729999542236328 1.7719999551773071,-43.590999603271484 1.7719999551773071,-43.590999603271484 C1.7719999551773071,-43.590999603271484 10.753000259399414,-40.49700164794922 10.753000259399414,-40.49700164794922 C10.753000259399414,-40.49700164794922 49.23500061035156,36.78799819946289 49.23500061035156,36.78799819946289z"></path></g><g opacity="1" transform="matrix(1,0,0,1,16.274999618530273,15.765000343322754)"><path fill="rgb(247,218,176)" fill-opacity="1" d=" M4.491000175476074,-8.27299976348877 C1.9859999418258667,-10.345999717712402 -3.1540000438690186,-9.069000244140625 -4.315000057220459,-8.744999885559082 C-4.315000057220459,-8.744999885559082 -4.316999912261963,-8.746000289916992 -4.316999912261963,-8.746000289916992 C-4.316999912261963,-8.746000289916992 -4.35699987411499,-8.734000205993652 -4.421000003814697,-8.713000297546387 C-4.506999969482422,-8.687999725341797 -4.557000160217285,-8.67199993133545 -4.557000160217285,-8.67199993133545 C-5.709000110626221,-8.309000015258789 -10.708999633789062,-6.572000026702881 -11.675999641418457,-3.4700000286102295 C-11.675999641418457,-3.4700000286102295 -11.246999740600586,10.345999717712402 0.9039999842643738,9.26200008392334 C11.675999641418457,3.5350000858306885 4.491000175476074,-8.27299976348877 4.491000175476074,-8.27299976348877z"></path></g><g opacity="1" transform="matrix(1,0,0,1,117.69999694824219,217.43899536132812)"><path fill="rgb(223,241,248)" fill-opacity="1" d=" M-36.301998138427734,8.032999992370605 C-36.301998138427734,8.032999992370605 -33.249000549316406,14.119999885559082 -33.249000549316406,14.119999885559082 C-33.249000549316406,14.119999885559082 36.301998138427734,-7.144999980926514 36.301998138427734,-7.144999980926514 C36.301998138427734,-7.144999980926514 33.840999603271484,-14.119999885559082 33.840999603271484,-14.119999885559082 C33.840999603271484,-14.119999885559082 -36.301998138427734,8.032999992370605 -36.301998138427734,8.032999992370605z"></path></g><g opacity="1" transform="matrix(1,0,0,1,160.7570037841797,311.0989990234375)"><path fill="rgb(8,161,193)" fill-opacity="1" d=" M79.67900085449219,91.85099792480469 C79.67900085449219,91.85099792480469 -22.53499984741211,103.77999877929688 -22.53499984741211,103.77999877929688 C-22.53499984741211,103.77999877929688 -79.67900085449219,-81.74600219726562 -79.67900085449219,-81.74600219726562 C-79.67900085449219,-81.74600219726562 -5.3429999351501465,-103.77899932861328 -5.3429999351501465,-103.77899932861328 C-5.3429999351501465,-103.77899932861328 79.67900085449219,91.85099792480469 79.67900085449219,91.85099792480469z"></path></g></g></g></svg></div>
+								</div>
+							</div>
+
+							<div id="chart" class="chart uk-hidden">
+							  <ul id="numbers" class="uk-hidden">
+								<li><span>100%</span></li>
+								<li><span>90%</span></li> 
+								<li><span>80%</span></li>
+								<li><span>70%</span></li>
+								<li><span>60%</span></li>
+								<li><span>50%</span></li>
+								<li><span>40%</span></li>
+								<li><span>30%</span></li>
+								<li><span>20%</span></li>
+								<li><span>10%</span></li>
+								<li><span>0%</span></li>
+							  </ul>
+  
+							  <ul id="bars">							  
+							  </ul>
+							</div>
+
+							<div id="pq-score" class="uk-hidden uk-width-expand uk-flex sc-js-scrollable ps uk-position-relative" style="align-items: center; justify-content: center">								
+								<div id="pq-score-grid-container" class="uk-width-expand" data-uk-filter="target: .js-sort">
+									<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-score-sort" uk-filter-control="sort: data-score; order: desc" hidden=""></a>
+									<div id="pq-score-grid" class="js-sort uk-child-width-1-1 uk-grid-collapse uk-width-expand uk-grid uk-grid-stack" data-uk-grid="">
+										<!-- Here will appear the player score template-->
+									</div>
+								</div>
+							<div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+
+						</div>
+						<div class="col3">
+							<div class="pq-margin-top-small uk-position-top-right uk-margin-medium-right">
+								<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-skip-button" class="sc-fab sc-fab-text" data-i18n="pq-skip">Skip</a>
+								<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-next-button" class="sc-fab sc-fab-text uk-hidden" data-i18n="pq-next">Next</a>
+							</div>
+							<div class="answered">
+								<div>
+									<span class="count odometer odometer-theme-default  odometer-animating-down  odometer-animating" id="pq-answer-count" style="display: inline-block"><div class="odometer-inside"><span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner"><span class="odometer-ribbon"><span class="odometer-ribbon-inner"><div class="odometer-value odometer-first-value">0</div><div class="odometer-value odometer-last-value">1</div></span></span></span></span></div></span><span id="pq-answer-max" class="pq-superscript">/1</span>
+								</div>
+								<span id="pq-answer-label">Answers</span>
+							</div>
+						</div>
+
+					</div>
+					<div id="bottom">
+	<div style="background-color: #E21B3C" class="" data-result="0">
+		<div class="shape">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+				<path d="M1,21H23L12,2"></path>
+			</svg>
+		</div>
+		<div class="content">
+			Reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeed coooooooolor
+		</div>
+	</div>
+
+	<div style="background-color: #1368CE" class="" data-result="0">
+		<div class="shape">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+				<path d="M21.5,10.8L13.2,2.5C12.5,1.8 11.5,1.8 10.8,2.5L2.5,10.8C1.8,11.5 1.8,12.5 2.5,13.2L10.8,21.5C11.5,22.2 12.5,22.2 13.2,21.5L21.5,13.2C22.1,12.5 22.1,11.5 21.5,10.8Z"></path>
+			</svg>
+		</div>
+		<div class="content">
+			Greeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeen coooooooolor
+		</div>
+	</div>
+
+	<div style="background-color: #d09f36" class="" data-result="0">
+		<div class="shape">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+				<path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
+			</svg>
+		</div>
+		<div class="content">
+			Blueeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee coooooooolor
+		</div>
+	</div>
+
+	<div style="background-color: #26890C" class="" data-result="1">
+		<div class="shape">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+				<path d="M3,3V21H21V3"></path>
+			</svg>
+		</div>
+		<div class="content">
+			Yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeellow coooooooolor
+		</div>
+	</div>
+</div>
+				</div>
+			</div>
+		<div class="demo uk-hidden">
+				<div class="demo__colored-blocks">
+				  <div class="demo__colored-blocks-rotater">
+					<div class="demo__colored-block"></div>
+					<div class="demo__colored-block"></div>
+					<div class="demo__colored-block"></div>
+				  </div>
+				  <div class="demo__colored-blocks-inner"></div>
+				  <div class="demo__text text-first" id="pq-step-2-ready">Panquiz!</div>
+				  <div class="demo__text text-last" id="pq-go" data-i18n="pq-go">Go!</div>
+				</div>
+				<div class="demo__inner">
+				  <svg class="demo__numbers" viewBox="0 0 100 100">
+					<defs>
+					  <path class="demo__num-path-1" d="M40,28 55,22 55,78"></path>
+					  <path class="demo__num-join-1-2" d="M55,78 55,83 a17,17 0 1,0 34,0 a20,10 0 0,0 -20,-10"></path>
+					  <path class="demo__num-path-2" d="M69,73 l-35,0 l30,-30 a16,16 0 0,0 -22.6,-22.6 l-7,7"></path>
+					  <path class="demo__num-join-2-3" d="M28,69 Q25,44 34.4,27.4"></path>
+					  <path class="demo__num-path-3" d="M30,20 60,20 40,50 a18,15 0 1,1 -12,19"></path>
+					</defs>
+					<path class="demo__numbers-path" d="M-10,20 60,20 40,50 a18,15 0 1,1 -12,19 
+							 Q25,44 34.4,27.4
+							 l7,-7 a16,16 0 0,1 22.6,22.6 l-30,30 l35,0 L69,73 
+							 a20,10 0 0,1 20,10 a17,17 0 0,1 -34,0 L55,83 
+							 l0,-61 L40,28"></path>
+				  </svg>
+				</div>
+			</div></div>
+
+		<div id="pq-step-3" class="pq-height-full uk-hidden">
+			<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-score-button" class="sc-fab sc-fab-text uk-hidden" data-i18n="pq-score" style="position: absolute; bottom: 148px; right: 20px">Score</a>
+			<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-feedback-button" class="sc-fab sc-fab-text uk-hidden" data-i18n="pq-feedback" style="position: absolute; bottom: 84px; right: 20px">Feedback</a>
+			<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-play-again-button" class="sc-fab sc-fab-text uk-hidden" data-i18n="pq-play-again" style="position: absolute; bottom: 20px; right: 20px">Play Again</a>
+			<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-skip-animation" class="uk-link-muted" data-i18n="pq-skip-animation" style="position: absolute; bottom: 20px; right: 20px">Skip Animation</a>
+			<div id="pq-final-animation" class="uk-height-1-1"></div>
+		</div>
+	</div>
+
+	<div id="sc-js-start-container" class="sc-fab-page-wrapper"> 
+		<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="sc-js-start-toggle" class="sc-fab sc-fab-text md-color-green-600 uk-hidden sc-fab-large"><i class="mdi mdi-play md-color-green-600"></i><span data-i18n="pq-start2">Start</span></a>
+	</div>
+</div>
+
+<div id="pq-right-panel-content" uk-offcanvas="flip: true; overlay: true" class="uk-offcanvas">
+	<div class="md-bg-white uk-flex uk-flex-column uk-offcanvas-bar uk-padding-remove" style="top: 0px;">
+		<div style="flex: 0 1 auto;">
+			<div class="md-bg-light-blue-800 md-color-white sc-padding uk-margin-xlarge-bottom" style="font-size: 1.8rem"><span data-i18n="pq-play-again">Play Again</span><button class="uk-offcanvas-close uk-icon uk-close" type="button" uk-close="" style="color: rgba(255,255,255,.7)"><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" data-svg="close-icon"><line fill="none" stroke="#000" stroke-width="1.1" x1="1" y1="1" x2="13" y2="13"></line><line fill="none" stroke="#000" stroke-width="1.1" x1="13" y1="1" x2="1" y2="13"></line></svg></button></div>
+			<center>
+				<div class="uk-margin-bottom uk-width-3-5"><button id="pq-play-again-button-this" class="sc-button sc-button-primary sc-js-button-wave-light sc-button-large uk-width-1-1 waves-effect waves-button waves-light" data-i18n="pq-this-quiz">This Panquiz</button></div>
+				<div class="uk-margin-bottom uk-width-3-5"><button id="pq-play-again-button-other" class="sc-button sc-js-button-wave sc-button-large uk-width-1-1 waves-effect waves-button" data-i18n="pq-another-quiz">Another Panquiz</button></div>
+				<div id="pq-right-panel-content-search" class="uk-margin-bottom uk-width-3-5 uk-search uk-search-default uk-hidden">
+
+					<span uk-search-icon="" style="color: #999" class="uk-icon uk-search-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="search-icon"><circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path></svg></span>
+					<input id="pq-right-panel-content-search-button" class="uk-search-input search pq-input-placeholder" style="border:1px solid #e5e5e5; color: #666; border-radius: 25px;" type="search" data-i18n="[placeholder]pq-search2-placeholder" placeholder="Search...">
+				</div>		
+			</center>
+		</div>
+		<div id="pq-right-panel-content-list" class="uk-width-1-1 uk-flex uk-flex-column sc-js-scrollable uk-hidden ps uk-position-relative" style="flex: 1 1 auto;  overflow-y: auto;">
+			<div id="pq-right-panel-content-label-favorites" class="uk-hidden" style="padding-left: 15px"><span class="uk-label md-bg-yellow-800" style="display:inline-block" data-i18n="pq-favorites">Favorites</span></div>
+			<ul id="pq-right-panel-content-list-favorites" class="list uk-link-text uk-hidden" style="padding-left:15px;padding-right:15px;">			
+			</ul>
+			<div id="pq-right-panel-content-list2">
+				<div id="pq-right-panel-content-label-my-quizzes" class="uk-hidden" style="padding-left: 15px"><span class="uk-label md-bg-indigo-600" style="display:inline-block" data-i18n="pq-my-panquizzes">My Panquizzes</span></div>
+				<ul id="pq-right-panel-content-list-my-quizzes" class="list uk-link-text uk-hidden" style="padding-left:15px;padding-right:15px;">
+				</ul>
+			</div>
+		<div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+	</div>
+</div>
+
+<div id="pq-rotate" class="uk-hidden" style="width: 100%;">
+	<img src="./PanQuiz - Sample Quiz_files/rotate.gif" style="display: block;margin-left: auto;margin-right: auto;width: 40%;margin-top:20px;">
+	<p style="color: white;font-size: 2.5rem;text-align: center;margin:0px 20px;" data-i18n="pq-rotate-device">Please rotate your device</p>
+</div>
+
+<script id="pq-player-template" type="text/x-handlebars-template">
+	<div id="pq-user_{{ connectionId }}" class="sc-el-clickable uk-animation-scale-up" data-user-name="{{ name }}"  data-connection-id="{{ connectionId }}">
+		<div class="uk-card sc-widget uk-flex uk-card-hover ">
+				<div class="{{ color }} uk-flex-middle uk-flex uk-flex-center pq-padding-borders-lr">
+					<i class="mdi mdi-account-outline md-color-white sc-icon-24"></i>
+				</div>
+				<div class="uk-flex-1 pq-padding-borders-lr">				
+					<div class="uk-card-body pq-no-padding-lr pq-padding-borders-tb" style="min-width: 40px;">
+						<p class="pq-player-card">{{ name }}</p>
+					</div>
+				</div>			
+		</div>
+	</div>
+</script>
+
+<script id="pq-answer-mc-template" type="text/x-handlebars-template">
+	<div style="background-color: {{ backgroundColor }}" class="{{ class }}" data-result="{{ result }}">
+		<div class="shape">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+				<path d="{{ shape }}" />
+			</svg>
+		</div>
+		<div class="content">
+			{{ text }}
+		</div>
+	</div>
+</script>
+
+<script id="pq-player-score-template" type="text/x-handlebars-template">	
+	<div data-score="" data-uk-grid>
+		<div class="uk-width-expand pq-score-leader" id="pq-player-score-name_{{ connectionId }}" uk-leader>{{ name }}</div>
+		<div class="uk-width-auto pq-score-leader {{ odometerClass }}" id="pq-player-score_{{ connectionId }}">0</div>
+	</div>	
+</script><div id="pq-login-modal" data-uk-modal="" class="uk-modal" style="">
+	<div class="uk-modal-dialog uk-modal-body">	    
+        <h2 class="uk-modal-title" data-i18n="pq-session-expired">Session Expired</h2>
+							
+					
+										<form id="sc-login-form" class="sc-toggle-login-register sc-toggle-login-password sc-toggle-login-app-start">
+											<div class="sc-login-page-inner">
+							<div id="pq-email-container" class="uk-margin-medium">
+																
+								
+								<div class="sc-input-wrapper sc-input-filled"><span class="uk-form-icon uk-icon" data-uk-icon="icon: user"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="user"><circle fill="none" stroke="#000" stroke-width="1.1" cx="9.9" cy="6.4" r="4.4"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M1.5,19 C2.3,14.5 5.8,11.2 10,11.2 C14.2,11.2 17.7,14.6 18.5,19.2"></path></svg></span><label for="email" data-i18n="pq-email">E-mail</label><input id="email" type="email" class="uk-input" data-sc-input="" autocomplete="email" maxlength="100"><span class="sc-input-bar"></span></div>
+							</div>
+							<div id="pq-password-container" class="uk-margin-medium">
+								
+								
+								<div class="sc-input-wrapper sc-input-filled"><span class="uk-form-icon uk-icon" data-uk-icon="icon: lock"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="lock"><rect fill="none" stroke="#000" height="10" width="13" y="8.5" x="3.5"></rect><path fill="none" stroke="#000" d="M6.5,8 L6.5,4.88 C6.5,3.01 8.07,1.5 10,1.5 C11.93,1.5 13.5,3.01 13.5,4.88 L13.5,8"></path></svg></span><label for="current-password" data-i18n="pq-password">Password</label><input id="current-password" type="password" class="uk-input" data-sc-input="" autocomplete="current-password" maxlength="25"><span class="sc-input-bar"></span></div>
+															</div>
+														<div id="pq-error-message" class="uk-hidden uk-alert-icon uk-alert" data-uk-alert="">
+								<div class="uk-flex uk-flex-middle">
+									<i class="mdi mdi-emoticon-sad-outline sc-icon-32 uk-margin-right"></i>
+									<div class="uk-alert-content">
+										<h5 data-i18n="pq-oops">Oops...</h5>
+										<p id="pq-error-message-text"></p>
+									</div>
+								</div>
+							</div>
+							
+							<div class="uk-margin-large-top">
+																
+								<div class="uk-text-right">								
+																		<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-logout-button" class="sc-button sc-button-flat sc-button-large uk-margin-small-right pq-login-modal-button waves-effect waves-button" data-i18n="pq-logout">Logout</a>
+																		<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-login-button" class="sc-button sc-button-large pq-login-modal-button waves-effect waves-button waves-light sc-button-primary" data-i18n="pq-sign-in" style="">Sign In</a>
+								</div>
+																<div id="pq-oauth-providers" class="uk-hidden uk-flex uk-flex-center uk-flex-column uk-flex-middle uk-margin-medium-top">
+									<div class="pq-oauth-toggle"><a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-oauth-login" class="sc-button sc-button-flat sc-button-social" style="border-radius: 8px; background: rgba(0, 0, 0, 0.18) !important" uk-toggle="target: .pq-oauth-toggle; animation: uk-animation-slide-bottom,uk-animation-slide-top; "><span id="pq-oauth-login-span" data-i18n="pq-login-with">Sign in with</span>&nbsp;<i class="mdi mdi-facebook-box sc-icon-22"></i><i class="mdi mdi-google sc-icon-22"></i><i class="mdi mdi-windows sc-icon-22"></i><i class="mdi mdi-apple sc-icon-22"></i></a></div>
+									<div class="pq-oauth-toggle" id="pq-oauth-wrapper" hidden="">
+										<div style="width: 290px"><a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-facebook-login" class="sc-button sc-button-block sc-button-large sc-button-social sc-button-facebook" style="border-radius: 8px;"><i class="mdi mdi-facebook-box sc-icon-24"></i>&nbsp;<span id="pq-facebook-login-span" class="uk-width-1-1" data-i18n="pq-facebook-login">Sign in with Facebook</span></a></div>
+										<div class="uk-hidden" id="pq-empty-login"></div>
+										<div style="width: 290px" class="uk-margin-top"><a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-google-login" class="sc-button sc-button-block sc-button-large sc-button-social" style="border-radius: 8px; background-color: #4285F4"><i class="mdi mdi-google sc-icon-24"></i>&nbsp;<span id="pq-google-login-span" class="uk-width-1-1" data-i18n="pq-google-login">Sign in with Google</span></a></div>
+										<div style="width: 290px" class="uk-margin-top"><a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-microsoft-login" class="sc-button sc-button-block sc-button-large sc-button-social" style="border-radius: 8px; background-color: #003f87"><i class="mdi mdi-windows sc-icon-24"></i>&nbsp;<span id="pq-microsoft-login-span" class="uk-width-1-1" data-i18n="pq-microsoft-login">Sign in with Microsoft</span></a></div>
+										<div style="width: 290px" class="uk-margin-top"><a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-apple-login" class="sc-button sc-button-block sc-button-large sc-button-social" style="border-radius: 8px; background-color: #000000"><i class="mdi mdi-apple sc-icon-24"></i>&nbsp;<span id="pq-apple-login-span" class="uk-width-1-1" data-i18n="pq-apple-login">Sign in with Apple</span></a></div>
+									</div>
+								</div>
+
+																<div id="pq-logout2-container" class="uk-text-right uk-margin-top uk-hidden">
+									<a href="https://app.panquiz.com/quizzes/play.html?id=ed0ca923-1441-48d0-abb1-6e22c2285fe0#" id="pq-logout-button2" class="sc-button sc-button-flat sc-button-large uk-margin-small-right pq-login-modal-button" data-i18n="pq-logout">Logout</a>
+								</div>
+								
+															</div>
+						</div>
+					</form>
+
+										
+						</div>
+</div>
+	<!-- async assets -->
+	<script>
+	//loadjs.js (assets/js/vendor/loadjs.js)
+	loadjs=function(){function v(a,d){a=a.push?a:[a];var c=[],b=a.length,e=b,g,k;for(g=function(a,b){b.length&&c.push(a);e--;e||d(c)};b--;){var h=a[b];(k=n[h])?g(h,k):(h=p[h]=p[h]||[],h.push(g))}}function r(a,d){if(a){var c=p[a];n[a]=d;if(c)for(;c.length;)c[0](a,d),c.splice(0,1)}}function t(a,d){a.call&&(a={success:a});d.length?(a.error||q)(d):(a.success||q)(a)}function u(a,d,c,b){var e=document,g=c.async,k=c.preload;try{var h=document.createElement("link").relList.supports("preload")}catch(y){h=0}var l=
+	(c.numRetries||0)+1,p=c.before||q,m=a.replace(/^(css|img)!/,"");b=b||0;if(/(^css!|\.css$)/.test(a)){var n=!0;var f=e.createElement("link");k&&h?(f.rel="preload",f.as="style"):f.rel="stylesheet";f.href=m}else/(^img!|\.(png|gif|jpg|svg)$)/.test(a)?(f=e.createElement("img"),f.src=m):(f=e.createElement("script"),f.src=a,f.async=void 0===g?!0:g);f.onload=f.onerror=f.onbeforeload=function(e){var g=e.type[0];if(n&&"hideFocus"in f)try{f.sheet.cssText.length||(g="e")}catch(w){18!=w.code&&(g="e")}if("e"==g&&
+	(b+=1,b<l))return u(a,d,c,b);k&&h&&(f.rel="stylesheet");d(a,g,e.defaultPrevented)};!1!==p(a,f)&&(n?e.head.insertBefore(f,document.getElementById("main-stylesheet")):e.head.appendChild(f))}function x(a,d,c){a=a.push?a:[a];var b=a.length,e=b,g=[],k;var h=function(a,c,e){"e"==c&&g.push(a);if("b"==c)if(e)g.push(a);else return;b--;b||d(g)};for(k=0;k<e;k++)u(a[k],h,c)}function l(a,d,c){var b;d&&d.trim&&(b=d);var e=(b?c:d)||{};if(b){if(b in m)throw"LoadJS";m[b]=!0}x(a,function(a){t(e,a);r(b,a)},e)}var q=
+	function(){},m={},n={},p={};l.ready=function(a,d){v(a,function(a){t(d,a)});return l};l.done=function(a){r(a,[])};l.reset=function(){m={};n={};p={}};l.isDefined=function(a){return a in m};return l}();
+	</script>
+	<script>
+		var html = document.getElementsByTagName('html')[0];
+		// ----------- CSS
+		// md icons
+		loadjs('/assets/css/materialdesignicons.min.css', {
+			preload: true
+		});
+		// UIkit
+		loadjs('/assets/css/uikit.min.css', {
+			preload: true
+		});
+		// mdi icons (base64) & google fonts (base64)
+		loadjs(['/assets/css/fonts/mdi_fonts.css', '/assets/css/fonts/roboto_base64.css', '/assets/css/fonts/sourceCodePro_base64.css'], {
+			preload: true
+		});
+		// main stylesheet
+		loadjs('/assets/css/main.min.css', function() {});
+
+		loadjs('/assets/css/themes/theme_user_md.min.css', {});
+
+		loadjs(['/assets/js/vendor/odometer/odometer-theme-default.css','/assets/js/vendor/odometer/odometer-theme-default-2s.css','/assets/css/pages/panquiz_play_admin.min.css'], {})
+
+		// vendor
+		loadjs('/assets/js/vendor.min.js', function () {
+				// scutum common functions/helpers
+				loadjs(['/assets/js/scutum_common.min.js'], function() {
+					scutum.init();
+					scutum.require(['jquery.i18n', 'initials'], function () {
+						loadjs('/assets/js/main.min.js', function () {
+						panquiz.init();
+						
+						loadjs(['/assets/js/views/pages/panquiz_play_admin.min.js', '/assets/js/animation.min.js'], { success: function() { $(function(){scutum.pages.playAdmin.init()}); } });
+					
+
+						loadjs('/assets/js/views/pages/panquiz_login.min.js', { success: function() { $(function(){panquiz.variables.isIncludedFile=true;scutum.pages.Login.init()}); } });
+
+						});
+
+					}, false);
+
+					// show page
+					setTimeout(function () {
+						// clear styles (FOUC)
+						$(html).css({
+							'backgroundColor': '',
+						});
+						$('body').css({
+							'visibility': '',
+							'overflow': '',
+							'apacity': '',
+							'maxHeight': ''
+						});
+					}, 100);
+				});
+		});
+	</script>
+
+	
+
+</body></html>
